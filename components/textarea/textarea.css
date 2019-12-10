@@ -1,0 +1,13 @@
+.textarea {
+  outline: none;
+  cursor: text;
+  resize: none;
+  padding: 0;
+  overflow: hidden;
+  border: solid 1px #d3d3d3;
+  border-radius: 5px;
+  padding: 10px;
+  color: #696969;
+  font-size: 16px;
+  line-height: 21px;
+}

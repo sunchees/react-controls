@@ -1,0 +1,15 @@
+.button {
+  background: unset;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 5px;
+  text-align: center;
+  color: #424242;
+}
+
+.button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}

@@ -1,0 +1,9 @@
+.router-link > a,
+.router-link > a:focus,
+.router-link > a:hover,
+.router-link > a:active {
+  outline: none;
+}
+.router-link {
+  color: #424242;
+}
