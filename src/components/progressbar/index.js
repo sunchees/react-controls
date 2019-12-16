@@ -1,6 +1,6 @@
 import React from 'react';
 import autobind from 'autobind-decorator';
-import CircularProgressbar from 'react-circular-progressbar';
+import { CircularProgressbar } from 'react-circular-progressbar';
 import './progressbar.css';
 
 export default class Progressbar extends React.PureComponent {

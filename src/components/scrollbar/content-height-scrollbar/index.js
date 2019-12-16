@@ -1,7 +1,7 @@
 import React from 'react';
 import autobind from 'autobind-decorator';
 import { ReactHeight } from 'react-height/lib/ReactHeight';
-import Scrollbar from '../scrollbar';
+import Scrollbar from '..';
 
 class InnerContentHeightScrollbar extends React.Component {
   @autobind

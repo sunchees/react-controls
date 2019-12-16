@@ -22,7 +22,7 @@ import TextareaWithScrollbar from './components/textarea/textarea-with-scrollbar
 import TextareaWithScrollbarAndLabel from './components/textarea/textarea-with-scrollbar/textarea-with-scrollbar-and-label';
 import WrapWithLabel from './components/wrap-with-label';
 
-module.export = {
+export {
   Button,
   Column,
   Dropdown,
