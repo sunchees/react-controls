@@ -1,7 +1,6 @@
 import React from 'react';
 import autobind from 'autobind-decorator';
 import MaskedInput from 'react-text-mask';
-import uuidv4 from 'uuid/v4';
 import './input.css';
 
 const KEY_CODE = {
@@ -19,7 +18,7 @@ class Input extends React.Component {
 
     this.state = {
       focused: false,
-      key: uuidv4()
+      key: Math.random()
     };
   }
 
@@ -29,7 +28,7 @@ class Input extends React.Component {
       nextProps.value !== this.value
     ) {
       this.value = nextProps.value;
-      this.setState({ key: uuidv4() });
+      this.setState({ key: Math.random() });
     }
 
     return (

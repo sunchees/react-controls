@@ -3,21 +3,44 @@ import commonjs from 'rollup-plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
-import { uglify } from 'rollup-plugin-uglify';
-import { terser } from 'rollup-plugin-terser';
 
-import packageJSON from './package.json';
-
-const input = './src/index.js';
-const minifyExtension = pathToFile => pathToFile.replace(/\.js$/, '.min.js');
+const component = path => `src/components/${path}/index.js`;
 
 export default [
   {
-    input,
-    output: {
-      file: packageJSON.main,
-      format: 'cjs'
+    input: {
+      index: 'src/index.js',
+      button: component('button'),
+      column: component('column'),
+      dropdown: component('dropdown'),
+      dropdownWithLabel: component('dropdown/dropdown-with-label'),
+      input: component('input'),
+      inputWithLabel: component('input/input-with-label'),
+      loader: component('loader/dash-loader'),
+      clusterLoader: component('loader/cluster-loader'),
+      dashLoader: component('loader/dash-loader'),
+      teardropLoader: component('loader/teardrop-loader'),
+      trailLoader: component('loader/trail-loader'),
+      progressbar: component('progressbar'),
+      radio: component('radio'),
+      radioWithLabel: component('radio/radio-with-label'),
+      routerLink: component('router-link'),
+      row: component('row'),
+      scrollbar: component('scrollbar'),
+      contentHeightScrollbar: component('scrollbar/content-height-scrollbar'),
+      text: component('text'),
+      textarea: component('textarea'),
+      textareaWithLabel: component('textarea/textarea-with-label'),
+      textareaWithScrollbar: component('textarea/textarea-with-scrollbar'),
+      textareaWithScrollbarAndLabel: component(
+        'textarea/textarea-with-scrollbar/textarea-with-scrollbar-and-label'
+      ),
+      wrapWithLabel: component('wrap-with-label')
     },
+    output: [
+      { dir: './lib/cjs', format: 'cjs' },
+      { dir: './lib/es', format: 'es' }
+    ],
     plugins: [
       postcss({
         extensions: ['.css']
@@ -26,147 +49,15 @@ export default [
         exclude: 'node_modules/**'
       }),
       external(),
-      resolve(),
+      resolve({
+        preferBuiltins: true
+      }),
       commonjs({
+        include: 'node_modules/**',
         namedExports: {
           'node_modules/react-is/index.js': ['isValidElementType']
         }
       })
-    ],
-    external: ['crypto', 'React']
-  },
-  {
-    input,
-    output: {
-      file: minifyExtension(packageJSON.main),
-      format: 'cjs'
-    },
-    plugins: [
-      postcss({
-        extensions: ['.css']
-      }),
-      babel({
-        exclude: 'node_modules/**'
-      }),
-      external(),
-      resolve(),
-      commonjs({
-        namedExports: {
-          'node_modules/react-is/index.js': ['isValidElementType']
-        }
-      }),
-      uglify()
-    ],
-    external: ['crypto', 'React']
-  },
-
-  // UMD
-  {
-    input,
-    output: {
-      file: packageJSON.browser,
-      format: 'umd',
-      name: 'uiControls',
-      globals: {
-        react: 'React',
-        crypto: 'crypto'
-      }
-    },
-    plugins: [
-      postcss({
-        extensions: ['.css']
-      }),
-      babel({
-        exclude: 'node_modules/**'
-      }),
-      external(),
-      resolve(),
-      commonjs({
-        namedExports: {
-          'node_modules/react-is/index.js': ['isValidElementType']
-        }
-      })
-    ],
-    external: ['crypto', 'React']
-  },
-  {
-    input,
-    output: {
-      file: minifyExtension(packageJSON.browser),
-      format: 'umd',
-      name: 'uiControls',
-      globals: {
-        react: 'React',
-        crypto: 'crypto'
-      }
-    },
-    plugins: [
-      postcss({
-        extensions: ['.css']
-      }),
-      babel({
-        exclude: 'node_modules/**'
-      }),
-      external(),
-      resolve(),
-      commonjs({
-        namedExports: {
-          'node_modules/react-is/index.js': ['isValidElementType']
-        }
-      }),
-      terser()
-    ],
-    external: ['crypto', 'React']
-  },
-
-  // ES
-  {
-    input,
-    output: {
-      file: packageJSON.module,
-      format: 'es',
-      exports: 'named'
-    },
-    plugins: [
-      postcss({
-        extensions: ['.css']
-      }),
-      babel({
-        exclude: 'node_modules/**'
-      }),
-      external(),
-      resolve(),
-      commonjs({
-        namedExports: {
-          'node_modules/react-is/index.js': ['isValidElementType']
-        }
-      })
-    ],
-    external: ['crypto', 'React']
-  },
-  {
-    input,
-    output: {
-      file: minifyExtension(packageJSON.module),
-      format: 'es',
-      exports: 'named'
-    },
-    plugins: [
-      postcss({
-        extensions: ['.css']
-      }),
-      babel({
-        exclude: 'node_modules/**'
-      }),
-      external(),
-      resolve(),
-      commonjs({
-        namedExports: {
-          'node_modules/react-is/index.js': ['isValidElementType']
-        }
-      }),
-      terser()
-    ],
-    external: ['crypto', 'React']
+    ]
   }
 ];
