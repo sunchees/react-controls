@@ -1,11 +1,12 @@
 {
   "name": "ui-controls",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "basic react ui controls and utility components",
   "main": "lib/cjs/index.js",
   "module": "lib/es/index.js",
   "files": [
-    "/lib"
+    "/lib",
+    "/types"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,6 +17,7 @@
     "url": "git@git.hostco.ru:dps/commons/ui-controls.git"
   },
   "private": true,
+  "typings": "./types/index.d.ts",
   "peerDependencies": {
     "react": "16.x"
   },

@@ -1,6 +1,6 @@
 import React from 'react';
 import autobind from 'autobind-decorator';
-import { Scrollbars } from 'react-custom-scrollbars';
+import Scrollbars from 'react-custom-scrollbars';
 import './scrollbar.css';
 
 @autobind
