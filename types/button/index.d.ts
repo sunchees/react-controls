@@ -1,5 +1,9 @@
-import * as React from "react";
+import React from 'react';
 
-declare class Button extends React.Component<any, any> {}
+/**
+ * Базовый компонент кнопки.
+ * Представляет собой обертку над HTML-элементом <button /> с добавлением стилей.
+ */
+declare class Button extends React.Component<React.HTMLProps<HTMLButtonElement>, any> {}
 
 export default Button;

@@ -4,38 +4,37 @@ import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
 
-const component = path => `src/components/${path}/index.js`;
+const component = path => `src/${path}/index.js`;
 
 export default [
   {
     input: {
       index: 'src/index.js',
       button: component('button'),
+      'cluster-loader': component('cluster-loader'),
+      'content-height-scrollbar': component('content-height-scrollbar'),
+      'dash-loader': component('dash-loader'),
       column: component('column'),
       dropdown: component('dropdown'),
-      dropdownWithLabel: component('dropdown/dropdown-with-label'),
+      'dropdown-with-label': component('dropdown-with-label'),
       input: component('input'),
-      inputWithLabel: component('input/input-with-label'),
-      loader: component('loader/dash-loader'),
-      clusterLoader: component('loader/cluster-loader'),
-      dashLoader: component('loader/dash-loader'),
-      teardropLoader: component('loader/teardrop-loader'),
-      trailLoader: component('loader/trail-loader'),
-      progressbar: component('progressbar'),
+      'input-with-label': component('input-with-label'),
+      'progress-loader': component('progress-loader'),
       radio: component('radio'),
-      radioWithLabel: component('radio/radio-with-label'),
-      routerLink: component('router-link'),
+      'radio-with-label': component('radio-with-label'),
+      'router-link': component('router-link'),
       row: component('row'),
       scrollbar: component('scrollbar'),
-      contentHeightScrollbar: component('scrollbar/content-height-scrollbar'),
+      'teardrop-loader': component('teardrop-loader'),
       text: component('text'),
       textarea: component('textarea'),
-      textareaWithLabel: component('textarea/textarea-with-label'),
-      textareaWithScrollbar: component('textarea/textarea-with-scrollbar'),
-      textareaWithScrollbarAndLabel: component(
-        'textarea/textarea-with-scrollbar/textarea-with-scrollbar-and-label'
+      'textarea-with-label': component('textarea-with-label'),
+      'textarea-with-scrollbar': component('textarea-with-scrollbar'),
+      'textarea-with-scrollbar-and-label': component(
+        'textarea-with-scrollbar-and-label'
       ),
-      wrapWithLabel: component('wrap-with-label')
+      'trail-loader': component('trail-loader'),
+      'wrap-with-label': component('wrap-with-label')
     },
     output: [
       { dir: './lib/cjs', format: 'cjs' },

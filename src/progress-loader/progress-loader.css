@@ -1,0 +1,14 @@
+.progress-loader > .CircularProgressbar .CircularProgressbar-path {
+  stroke: #424242;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.progress-loader > .CircularProgressbar .CircularProgressbar-trail {
+  stroke: #d3d3d3;
+}
+
+.progress-loader > .CircularProgressbar .CircularProgressbar-text {
+  stroke: #424242;
+  text-anchor: middle;
+}
