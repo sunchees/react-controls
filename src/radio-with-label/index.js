@@ -7,26 +7,28 @@ import './radio-with-label.css';
 export default class RadioWithLabel extends React.PureComponent {
   @autobind
   onClick() {
-    if (this.props.onClick) this.props.onClick(this.props.item);
+    if (this.props.onClick && !this.props.disabled) this.props.onClick(this.props.item, this.props.name);
   }
 
   render() {
     const {
       className = '',
       selected,
-      label,
-      onClick,
       item,
+      name,
+      onClick,
+      disabled,
+      label,
       ...props
     } = this.props;
 
     return (
       <div
         {...props}
-        className={`radio-with-label ${className}`}
+        className={`radio-with-label ${disabled ? 'disabled' : ''} ${className}`}
         onClick={this.onClick}
       >
-        <Radio className='radio-with-label__radio' selected={selected} />
+        <Radio className='radio-with-label__radio' selected={selected} disabled={disabled} />
         {label ? (
           <Text className='radio-with-label__label' value={label} />
         ) : null}

@@ -5,8 +5,8 @@ import WrapWithLabel from '../wrap-with-label';
 const InputWithLabel = ({
   className,
   label,
-  inputProps,
-  mandatory = false
+  mandatory = false,
+  inputProps = {}
 }) => (
   <WrapWithLabel className={className} label={label} mandatory={mandatory}>
     <Input {...inputProps} />

@@ -27,13 +27,16 @@ class Textarea extends React.PureComponent {
   }
 
   onKeyDown(e) {
-    if (e.keyCode === KEY_CODE.ENTER)
-      if (!e.shiftKey && this.props.onEnterPress) {
-        e.preventDefault();
-        this.props.onEnterPress(this.input.value);
-      }
-
     if (this.props.onKeyDown) this.props.onKeyDown(e);
+    if (e.keyCode == KEY_CODE.ENTER && this.props.onEnterPress && !e.shiftKey) {
+      e.preventDefault();
+      this.props.onEnterPress(this.value, this.props.name);
+      if (this.props.blurOnEnter) document.activeElement.blur();
+    }
+    if (e.keyCode == KEY_CODE.ESCAPE && this.props.onEscapeKeyPress) {
+      e.preventDefault();
+      this.props.onEscapeKeyPress(this.value, this.props.name);
+    }
   }
 
   onPaste(e) {
@@ -50,7 +53,7 @@ class Textarea extends React.PureComponent {
       for (let i = 0; i < clipboardItems.length; i++)
         if (clipboardItems[i].kind == 'file') {
           const file = clipboardItems[i].getAsFile();
-          this.props.onClipboardFilePaste([file]);
+          this.props.onClipboardFilePaste([file], this.props.name);
           break;
         }
     }
@@ -77,6 +80,10 @@ class Textarea extends React.PureComponent {
     this.adjustHeight();
   }
 
+  focus() {
+    this.input.focus();
+  }
+
   adjustHeight(prevRows = this.input.rows) {
     const styles = getComputedStyle(this.input);
     const lineHeight = parseInt(styles.getPropertyValue('line-height')),
@@ -98,10 +105,6 @@ class Textarea extends React.PureComponent {
   render() {
     const {
       className = '',
-      defaultValue,
-      placeholder,
-      disabled,
-      autoFocus,
       onKeyDown,
       onEnterPress,
       onChange,
@@ -117,15 +120,10 @@ class Textarea extends React.PureComponent {
         {...props}
         className={`textarea ${className}`}
         ref={this.setInputRef}
-        placeholder={placeholder}
-        defaultValue={defaultValue}
-        autoFocus={autoFocus}
         onKeyDown={this.onKeyDown}
         onPaste={this.onPaste}
-        onClick={this.onClick}
         onChange={this.onChange}
         rows={1}
-        disabled={disabled}
       />
     );
   }

@@ -17,7 +17,6 @@ class Input extends React.Component {
     this.value = this.props.defaultValue || this.props.value;
 
     this.state = {
-      focused: false,
       key: Math.random()
     };
   }
@@ -42,32 +41,21 @@ class Input extends React.Component {
     );
   }
 
-  onFocus() {
-    this.setState({ focused: true });
-    if (this.props.onFocus) this.props.onFocus();
-  }
-
-  onBlur(e) {
-    this.setState({ focused: false });
-    if (this.props.onBlur) this.props.onBlur(e);
-  }
-
   onChange(e) {
-    const value = e.target.value;
-    this.value = value;
-    if (this.props.onChange) this.props.onChange(value, this.props.name);
+    this.value = e.target.value;
+    if (this.props.onChange) this.props.onChange(this.value, this.props.name);
   }
 
   onKeyDown(e) {
     if (this.props.onKeyDown) this.props.onKeyDown(e);
     if (e.keyCode == KEY_CODE.ENTER && this.props.onEnterPress) {
       e.preventDefault();
-      this.props.onEnterPress(e.target.value);
-      if (this.props.blurOnEnter !== false) document.activeElement.blur();
+      this.props.onEnterPress(this.value, this.props.name);
+      if (this.props.blurOnEnter) document.activeElement.blur();
     }
     if (e.keyCode == KEY_CODE.ESCAPE && this.props.onEscapeKeyPress) {
       e.preventDefault();
-      this.props.onEscapeKeyPress(e.target.value);
+      this.props.onEscapeKeyPress(this.value, this.props.name);
     }
   }
 
@@ -88,15 +76,9 @@ class Input extends React.Component {
       defaultValue,
       value,
       secure,
-      placeholder,
-      disabled,
-      autoFocus,
       mask,
       guide = false,
       showMask = false,
-      maxLength,
-      onFocus,
-      onBlur,
       onKeyDown,
       onEnterPress,
       onEscapeKeyPress,
@@ -115,17 +97,11 @@ class Input extends React.Component {
         ref={this.setInputRef}
         value={value || defaultValue}
         type={secure ? 'password' : 'text'}
-        placeholder={placeholder}
-        disabled={disabled}
         onChange={this.onChange}
         onKeyDown={this.onKeyDown}
-        onBlur={this.onBlur}
-        onFocus={this.onFocus}
-        autoFocus={autoFocus}
         mask={mask || false}
         guide={guide}
         showMask={showMask}
-        maxLength={maxLength}
       />
     );
   }

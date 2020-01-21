@@ -1,11 +1,24 @@
 import React from 'react';
 
 export interface TextProps extends React.HTMLProps<HTMLSpanElement> {
+  /** Текст, отображаемый компонентом */
   value: string;
+  /**
+   * Флаг, определяющий нужно ли отображать 'props.value' с большой буквы.
+   * Если флаг выставлен в значение true - к тексту применяется стиль 'capitalized'
+   */
   capitalized?: boolean;
+  /**
+   * Флаг, определяющий нужно ли отображать 'props.value' жирным шрифтом.
+   * Если флаг выставлен в значение true - к тексту применяется стиль 'bold'
+   */
   bold?: boolean;
 }
 
-declare class Text extends React.Component<TextProps, any> {}
+/**
+ * Базовый компонент текста.
+ * Представляет собой обертку над HTML-элементом <span /> с добавлением стилей.
+ */
+declare class Text extends React.Component<TextProps> {}
 
 export default Text;

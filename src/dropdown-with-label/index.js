@@ -3,10 +3,10 @@ import WrapWithLabel from '../wrap-with-label';
 import Dropdown from '../dropdown';
 
 const DropdownWithLabel = ({
-  className,
+  className = '',
   label,
-  dropdownProps,
-  mandatory = false
+  mandatory = false,
+  dropdownProps = {}
 }) => (
   <WrapWithLabel className={className} label={label} mandatory={mandatory}>
     <Dropdown {...dropdownProps} />
