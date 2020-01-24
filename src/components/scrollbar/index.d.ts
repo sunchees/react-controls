@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Scrollbars as ReactCustomScrollbar,
   ScrollbarProps as ReactCustomScrollbarProps,
   positionValues as ReactCustomScrollbarPositionValues
 } from 'react-custom-scrollbars';
@@ -25,7 +24,7 @@ export interface ScrollbarProps extends React.HTMLProps<ReactCustomScrollbarProp
  * Компонент-обертка, добавляющий к контенту скроллбар.
  * @see https://www.npmjs.com/package/react-custom-scrollbars
  */
-declare class Scrollbar extends ReactCustomScrollbar {
+declare class Scrollbar extends React.Component<ScrollbarProps> {
   /**
    * Позволяет узнать, находится ли вертикальный скроллбар в самой нижней позиции
    */
