@@ -4,8 +4,13 @@
     "browser": true,
     "jest": true
   },
+  "plugins": [
+    "react-hooks"
+  ],
   "parser": "babel-eslint",
   "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     //Временно отключены из за необходимости более детально разобраться
     "linebreak-style": 0,
     "react/prefer-stateless-function": 0,

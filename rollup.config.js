@@ -4,12 +4,12 @@ import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
 
-const component = path => `src/${path}/index.js`;
+const component = path => `src/components/${path}/index.js`;
 
 export default [
   {
     input: {
-      index: 'src/index.js',
+      // index: 'src/index.js',
       button: component('button'),
       'cluster-loader': component('cluster-loader'),
       'content-height-scrollbar': component('content-height-scrollbar'),

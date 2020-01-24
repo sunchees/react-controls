@@ -1,0 +1,30 @@
+.ReactTable {
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.ReactTable .-pagination {
+  height: 44px;
+}
+
+.ReactTable.-striped .rt-tr.-even {
+  background-color: #f6fbff !important;
+}
+
+.ReactTable.-striped .rt-tr.-odd {
+  background-color: #dcf0ff !important;
+}
+
+.ReactTable.-striped .rt-tbody .rt-tr:hover {
+  background-color: #42a5f5 !important;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.ReactTable .rt-thead.-filters * {
+  width: 100%;
+  line-height: 20px;
+  color: unset;
+  box-shadow: unset;
+}

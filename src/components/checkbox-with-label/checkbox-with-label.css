@@ -1,0 +1,20 @@
+.checkbox-with-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox-with-label__label {
+  margin-left: 5px;
+  line-height: 20px;
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+
+.checkbox-with-label.disabled {
+  cursor: default;
+}
+
+.checkbox-with-label.disabled > .checkbox-with-label__label {
+  opacity: 0.5;
+}
