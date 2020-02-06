@@ -8,7 +8,7 @@ export interface DropdownItemProps {
   className?: string;
   /**
    * Обработчик события нажатия на элемент выпадающего списка.
-   * @param item - эллемент выпадающего списка, переданный в компонент через свойство "item".
+   * @param item - элемент выпадающего списка, переданный в компонент через свойство "item".
    */
   onMouseDown: (item: any) => void;
   /**
@@ -23,6 +23,10 @@ export interface DropdownItemProps {
    * Название поля элемента выпадающего списка, отображаемого в выпадающем списке.
    */
   displayField?: string
+  /**
+   * Флаг, указывающий на то, что данный элемент списка выбран
+   */
+  selected?: boolean
 }
 
 export interface DropdownProps extends React.HTMLProps<HTMLDivElement> {
@@ -42,7 +46,7 @@ export interface DropdownProps extends React.HTMLProps<HTMLDivElement> {
   /**
    * Выбранный по умолчанию элемент выпадающего списка.
    */
-  defaultItem?: any;
+  defaultSelected?: any;
   /**
    * Обработчик события изменения выбранного элемента выпадающего списка. Принимает два входящих параметра:
    * @param item - новый выбранный элемент списка.

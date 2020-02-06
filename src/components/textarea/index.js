@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import autobind from 'autobind-decorator';
 import './textarea.css';
 
@@ -12,6 +13,11 @@ const KEY_CODE = {
   ESCAPE: 27
 };
 
+/**
+ * Компонент многострочного поля ввода.
+ * <br>
+ * Представляет собой обертку над HTML-элементом textarea с добавлением стилей и обработчиком вставки файлов из буфера обмена.
+ */
 @autobind
 class Textarea extends React.PureComponent {
   constructor(props) {
@@ -35,7 +41,7 @@ class Textarea extends React.PureComponent {
     }
     if (e.keyCode == KEY_CODE.ESCAPE && this.props.onEscapeKeyPress) {
       e.preventDefault();
-      this.props.onEscapeKeyPress(this.value, this.props.name);
+      this.props.onEscapePress(this.value, this.props.name);
     }
   }
 
@@ -49,6 +55,9 @@ class Textarea extends React.PureComponent {
       this.props.onClipboardFilePaste
     ) {
       e.preventDefault();
+      /**
+       * Почему-то файлы из буфера вытащить не удается.
+       */
       const clipboardItems = e.clipboardData.items;
       for (let i = 0; i < clipboardItems.length; i++)
         if (clipboardItems[i].kind == 'file') {
@@ -71,15 +80,33 @@ class Textarea extends React.PureComponent {
     if (this.props.forwardRef) this.props.forwardRef(input);
   }
 
+  /**
+   * Возвращает текущее содержимое поля ввода
+   *
+   * @returns {string}
+   *
+   * @public
+   */
   getValue() {
     return this.input.value;
   }
 
+  /**
+   * Задает содежимое поля ввода
+   * @param {string} value - новое содержимое поля ввода
+   *
+   * @public
+   */
   setValue(value) {
     this.input.value = value || '';
     this.adjustHeight();
   }
 
+  /**
+   * Переводит фокус (курсор) в поле ввода
+   *
+   * @public
+   */
   focus() {
     this.input.focus();
   }
@@ -87,13 +114,15 @@ class Textarea extends React.PureComponent {
   adjustHeight(prevRows = this.input.rows) {
     const styles = getComputedStyle(this.input);
     const lineHeight = parseInt(styles.getPropertyValue('line-height')),
-      minHeight = parseInt(styles.getPropertyValue('min-height'));
+      minHeight = parseInt(styles.getPropertyValue('min-height')),
+      paddingTop = parseInt(styles.getPropertyValue('padding-top')),
+      paddingBottom = parseInt(styles.getPropertyValue('padding-bottom'));
 
-    const minRows = Math.ceil((minHeight || lineHeight) / lineHeight);
+    const minRows = Math.ceil(((minHeight || lineHeight) - (paddingTop + paddingBottom)) / lineHeight);
     this.input.rows = minRows;
 
     const rows = Math.ceil(
-      (this.input.scrollHeight - (minHeight || lineHeight)) / lineHeight
+      (this.input.scrollHeight - (minHeight || lineHeight) - (paddingTop + paddingBottom)) / lineHeight
     );
 
     this.input.rows = minRows + rows;
@@ -107,6 +136,7 @@ class Textarea extends React.PureComponent {
       className = '',
       onKeyDown,
       onEnterPress,
+      onEscapePress,
       onChange,
       onHeightChange,
       onClipboardFilePaste,
@@ -130,3 +160,58 @@ class Textarea extends React.PureComponent {
 }
 
 export default Textarea;
+
+Textarea.propTypes = {
+  /**
+   * Обработчик события нажатия на клавишу Enter в поле ввода.
+   * <br>
+   * @param {string} value - текущее содержимое поля ввода.
+   * <br>
+   * @param {string=} name - название поля ввода, на основе заданного компоненту свойства "name".
+   */
+  onEnterPress: PropTypes.func,
+  /**
+   * Убирает фокус с поля ввода при нажатии клавиши Enter.
+   */
+  blurOnEnter: PropTypes.bool,
+  /**
+   * Обработчик события нажатия на клавишу Escape в поле ввода.
+   * <br>
+   * @param {string} value - текущее содержимое поля ввода
+   * <br>
+   * @param {string=} name - название поля ввода, на основе заданного компоненту свойства "name"
+   */
+  onEscapePress: PropTypes.func,
+  /**
+   * Функция для получения ссылки на вложенный компонент.
+   *
+   * @param {HTMLInputElement} ref - ссылка на компонент
+   */
+  forwardRef: PropTypes.func,
+  /**
+   * Обработчик события изменения содержимого поля ввода.
+   * <br>
+   * @param {string} value - текущее содержимое поля ввода
+   * <br>
+   * @param {string=} name - название поля ввода, на основе заданного компоненту свойства "name"
+   */
+  onChange: PropTypes.func,
+  /**
+   * Название поля ввода.
+   */
+  name: PropTypes.string,
+  /**
+   * Обработчик события изменения высоты поля ввода.
+   *
+   * @param {number} height - новая высота поля ввода
+   */
+  onHeightChange: PropTypes.func,
+  /**
+   * Обработчик события вставки файлов в поле ввода.
+   * <br>
+   * @param {Array<File>} files - массив файлов
+   * <br>
+   * @param {string=} name - название поля ввода, на основе заданного компоненту свойства "name"
+   */
+  onClipboardFilePaste: PropTypes.func
+};

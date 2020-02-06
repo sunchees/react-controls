@@ -9,22 +9,32 @@ const component = path => `src/components/${path}/index.js`;
 export default [
   {
     input: {
-      // index: 'src/index.js',
+      index: 'src/index.js',
       button: component('button'),
+      'button-with-loader': component('button-with-loader'),
+      checkbox: component('checkbox'),
+      'checkbox-with-label': component('checkbox-with-label'),
       'cluster-loader': component('cluster-loader'),
       'content-height-scrollbar': component('content-height-scrollbar'),
-      'dash-loader': component('dash-loader'),
       column: component('column'),
+      'combo-box': component('combo-box'),
+      'combo-box-with-label': component('combo-box-with-label'),
+      'dash-loader': component('dash-loader'),
       dropdown: component('dropdown'),
       'dropdown-with-label': component('dropdown-with-label'),
       input: component('input'),
       'input-with-label': component('input-with-label'),
+      'manual-table': component('manual-table'),
+      modal: component('modal'),
+      'multi-select': component('multi-select'),
+      'multi-select-with-label': component('multi-select-with-label'),
       'progress-loader': component('progress-loader'),
       radio: component('radio'),
       'radio-with-label': component('radio-with-label'),
       'router-link': component('router-link'),
       row: component('row'),
       scrollbar: component('scrollbar'),
+      table: component('table'),
       'teardrop-loader': component('teardrop-loader'),
       text: component('text'),
       textarea: component('textarea'),
@@ -33,7 +43,6 @@ export default [
       'textarea-with-scrollbar-and-label': component(
         'textarea-with-scrollbar-and-label'
       ),
-      'trail-loader': component('trail-loader'),
       'wrap-with-label': component('wrap-with-label')
     },
     output: [

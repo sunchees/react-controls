@@ -3,9 +3,9 @@ import { CircularProgressbarProps } from 'react-circular-progressbar/dist/types'
 
 export interface ProgressLoaderProps extends React.HTMLProps<HTMLDivElement> {
   /** Процент заполнения лоадера */
-  percentage: number;
-  /** Позволяет скрыть отображение надписи `{percentage}%` внутри лоадера */
-  hidePercentage?: boolean;
+  value: number;
+  /** Определяет наличие внутри лоадера надписи `{value}%` */
+  displayValue?: boolean;
   /**
    * Параметры, передаваемые во внутренний компонент <CircularProgressbar/> 
    * @see https://www.npmjs.com/package/react-circular-progressbar

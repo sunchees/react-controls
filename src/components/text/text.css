@@ -1,4 +1,5 @@
 .text {
+  display: block;
   color: #424242;
 }
 

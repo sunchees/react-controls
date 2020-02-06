@@ -1,10 +1,11 @@
 .checkbox {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border: 1px solid #d3d3d3;
   flex-shrink: 0;
   border-radius: 2px;
   font-size: 14px;
+  padding: unset;
 }
 
 .checkbox.checked {

@@ -1,11 +1,14 @@
 .button {
-  background: unset;
-  border: none;
-  cursor: pointer;
+  width: 217px;
+  background: none;
   border-radius: 5px;
-  font-size: 18px;
+  border: 1px solid #d3d3d3;
+  cursor: pointer;
+  font-size: 16px;
   text-align: center;
   color: #424242;
+  outline: none;
+  padding: 10px;
 }
 
 .button:disabled {

@@ -1,9 +1,10 @@
 import React from 'react';
 
+export interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {}
+
 /**
  * Базовый компонент кнопки.
- * Представляет собой обертку над HTML-элементом <button /> с добавлением стилей.
  */
-declare class Button extends React.Component<React.HTMLProps<HTMLButtonElement>> {}
+declare class Button extends React.Component<ButtonProps> {}
 
 export default Button;

@@ -15,7 +15,7 @@
 <Input secure={true} error={true} />
 ```
 
-Поле ввода с обработчиками:
+Поле ввода с обработчиками (события логируются в консоль):
 
 ```js
 let input;
@@ -25,15 +25,15 @@ function ref(_ref) {
 }
 
 function onChange(value, name) {
-  alert(`onChange: ${value}, ${name}`);
+  console.log('Input.onChange', value, name);
 }
 
 function onEnterPress(value, name) {
-  alert(`onEnterPress: ${value}, ${name}`);
+  console.log('Input.onEnterPress', value, name);
 }
 
 function onEscapePress(value, name) {
-  alert(`onEscapePress: ${value}, ${name}`);
+  console.log('Input.onEscapePress', value, name);
 }
 
 function focus() {
@@ -41,7 +41,7 @@ function focus() {
 }
 
 function getValue() {
-  alert(input.getValue())
+  console.log('Input.getValue', input.getValue())
 }
 
 function setValue() {
@@ -51,7 +51,7 @@ function setValue() {
 return <div>
   <Input
     ref={ref}
-    name='Поле ввода 1'
+    name='Input 1'
     defaultValue='Текст по умолчанию'
     onChange={onChange}
     onEnterPress={onEnterPress}

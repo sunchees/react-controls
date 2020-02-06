@@ -32,6 +32,15 @@ class InnerContentHeightScrollbar extends React.Component {
   }
 }
 
+/**
+ * Компонент-обертка, добавляющий к контенту скроллбар.
+ * <br>
+ * Представляет собой обертку над компонентом [Scrollbar](/#scrollbar).
+ * <br>
+ * Высота скроллбара будет автоматически подстроена под высоту контента.
+ * <br>
+ * Данный компонент наиболее применим в случае, когда необходимо отобразить список элементов, минимальная высота которого всегда равна высоте контента, но максимальная высота ограничена внешними стилями (через max-height).
+ */
 const ContentHeightScrollbar = React.forwardRef((props, ref) => (
   <InnerContentHeightScrollbar {...props} forwardRef={ref} />
 ));

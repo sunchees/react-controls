@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import autobind from 'autobind-decorator';
 import ContentHeightScrollbar from '../content-height-scrollbar';
 import Button from '../button';
@@ -17,14 +18,20 @@ class DefaultDropdownItem extends React.PureComponent {
         onMouseDown={this.onMouseDown}
         disabled={this.props.disabled}
       >
-        {this.props.displayField
-          ? this.props.item[this.props.displayField]
-          : this.props.item}
+        {this.props.item
+          ? this.props.displayField
+            ? `${this.props.item[this.props.displayField]}`
+            : `${this.props.item}`
+          : null}
       </Button>
     );
   }
 }
 
+/**
+ * Компонент выпадающего списка.
+ * Представляет собой обертку над HTML-элементом div с вложенным компонентом [ContentHeightScrollbar](/#contentheightscrollbar).
+ */
 @autobind
 class Dropdown extends React.Component {
   constructor(props) {
@@ -32,7 +39,7 @@ class Dropdown extends React.Component {
 
     this.state = {
       open: false,
-      selected: this.props.defaultItem || null
+      selected: this.props.defaultSelected || null
     };
 
     this.scrollbar = null;
@@ -40,10 +47,10 @@ class Dropdown extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (
-      !this.props.defaultItem !== this.state.selected &&
-      !prevProps.defaultItem !== this.props.defaultItem
+      this.props.defaultSelected !== this.state.selected &&
+      prevProps.defaultSelected !== this.props.defaultSelected
     )
-      this.setState({ selected: this.props.defaultItem });
+      this.setState({ selected: this.props.defaultSelected });
   }
 
   onBlur() {
@@ -55,6 +62,13 @@ class Dropdown extends React.Component {
     if (this.props.onChange) this.props.onChange(item, this.props.name);
   }
 
+  /**
+   * Возвращает текущий выбранный элемент выпадающего списка
+   *
+   * @returns {Object}
+   *
+   * @public
+   */
   getSelected() {
     return this.state.selected;
   }
@@ -63,6 +77,11 @@ class Dropdown extends React.Component {
     this.setState({ open: !this.state.open });
   }
 
+  /**
+   * Сбрасывает текущий выбранный элемент выпадающего списка
+   *
+   * @public
+   */
   resetSelected() {
     this.setState({ selected: null });
   }
@@ -73,11 +92,12 @@ class Dropdown extends React.Component {
       ItemComponent = DefaultDropdownItem,
       items = [],
       displayField,
-      defaultItem,
+      defaultSelected,
       onChange,
       error,
       disabled,
       scrollbarProps = {},
+      name,
       ...props
     } = this.props;
 
@@ -123,3 +143,47 @@ class Dropdown extends React.Component {
 }
 
 export default Dropdown;
+
+Dropdown.propTypes = {
+  /**
+   * Класс компонента для отрисовки элементов выпадающего списка.
+   */
+  ItemComponent: PropTypes.elementType,
+  /**
+   * Массив элементов, доступных для выбора в выпадающем списке.
+   */
+  items: PropTypes.arrayOf(PropTypes.any),
+  /**
+   * Название поля элемента выпадающего списка, отображаемого в выпадающем списке. Применимо в случае, если используется стандартный ItemComponent.
+   * <br>
+   * Если displayField не передан, и используется стандартный ItemComponent, то для отображения будет использоваться сам элемент списка.
+   */
+  displayField: PropTypes.string,
+  /**
+   * Выбранный по умолчанию элемент выпадающего списка.
+   */
+  defaultSelected: PropTypes.any,
+  /**
+   * Обработчик события изменения выбранного элемента выпадающего списка. Принимает два входящих параметра:
+   * @param {any} item - новый выбранный элемент списка.
+   * <br>
+   * @param {string=} name - название выпадающего списка, на основе заданного компоненту свойства "name".
+   */
+  onChange: PropTypes.func,
+  /**
+   * Название выпадающего списка.
+   */
+  name: PropTypes.string,
+  /**
+   * Наличие ошибки выпадающего списка. При значении true - добавляет класс .error к компоненту выпадающего списка
+   */
+  error: PropTypes.bool,
+  /**
+   * Флаг, отключающий выпадающий список.
+   */
+  disabled: PropTypes.bool,
+  /**
+   * Свойства, передаваемые вложенному компоненту [ContentHeightScrollbar](/#contentheightscrollbar)
+   */
+  scrollbarProps: PropTypes.shape({})
+};

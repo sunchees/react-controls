@@ -1,3 +1,8 @@
+.progress-loader {
+  width: 32px;
+  height: 32px;
+}
+
 .progress-loader > .CircularProgressbar .CircularProgressbar-path {
   stroke: #424242;
   stroke-linecap: round;

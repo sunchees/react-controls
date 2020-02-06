@@ -1,6 +1,7 @@
 import React from 'react';
+import { ButtonProps } from '../button';
 
-export interface RadioProps extends React.HTMLProps<HTMLButtonElement> {
+export interface RadioProps extends ButtonProps {
   /** 
    * Флаг, задающий активность радиокнопки.
    * В случае, если радиокнопка активна, к ней применяется стиль 'selected'.

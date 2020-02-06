@@ -5,6 +5,7 @@
 }
 
 .dash-loader {
+  position: relative;
   display: block;
   height: 32px;
   width: 32px;

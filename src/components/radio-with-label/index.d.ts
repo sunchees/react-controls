@@ -33,7 +33,6 @@ export interface RadioWithLabelProps extends React.HTMLProps<HTMLDivElement> {
 
 /**
  * Базовый компонент радиокнопки с ярлыком.
- * Представляет собой компоненты <Radio/> и <Text/> сгруппированные внутри HTML-элемента <div/>.
  */
 declare class RadioWithLabel extends React.Component<RadioWithLabelProps> {}
 

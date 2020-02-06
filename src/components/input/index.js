@@ -12,7 +12,7 @@ const KEY_CODE = {
 /**
  * Компонент поля ввода с поддержкой маски ввода.
  * Представляет собой обертку над компонентом MaskedInput и расширяет все его свойства.
- * @see https://www.npmjs.com/package/react-text-mask
+ * @see [Документация MaskedInput](https://www.npmjs.com/package/react-text-mask)
  */
 @autobind
 class Input extends React.Component {
@@ -66,13 +66,15 @@ class Input extends React.Component {
   }
 
   setInputRef(input) {
-    this.input = input.inputElement;
-
-    if (this.props.forwardRef) this.props.forwardRef(input);
+    if (input) {
+      this.input = input.inputElement;
+      if (this.props.forwardRef) this.props.forwardRef(input);
+    }
   }
 
   /**
    * Возвращает текущее содержимое поля ввода
+   *
    * @returns {string}
    *
    * @public

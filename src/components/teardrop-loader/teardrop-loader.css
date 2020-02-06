@@ -1,4 +1,5 @@
 .teardrop-loader {
+  position: relative;
   height: 32px;
   width: 32px;
 }

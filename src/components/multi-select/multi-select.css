@@ -1,0 +1,30 @@
+.multi-select {
+  width: 217px;
+  max-height: 200px;
+}
+
+.multi-select__combo-box {
+  width: inherit;
+  flex-shrink: 0;
+}
+
+.multi-select__scrollbar {
+  max-height: calc(100% - 42px);
+  margin-top: 5px;
+}
+
+.multi-select__scrollbar > div:nth-child(1) > div {
+  padding-right: 12px;
+}
+
+.multi-select__list-item {
+  padding: 10px;
+  align-items: center;
+}
+
+.multi-select__list-item__deselect-button {
+  width: unset;
+  padding: unset;
+  border: unset;
+  margin-left: auto;
+}

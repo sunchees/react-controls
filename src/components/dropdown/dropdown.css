@@ -1,11 +1,11 @@
 .dropdown {
   position: relative;
+  width: 217px;
   min-height: 32px;
   border-radius: 5px;
   border: 1px solid #d3d3d3;
 }
 .dropdown.open {
-  border-bottom: none;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
@@ -55,7 +55,6 @@
   border: 1px solid #d3d3d3;
   border-top: none;
   border-radius: 0px 0px 5px 5px;
-  width: calc(100% + 2px) !important;
   left: -1px;
   z-index: 1;
 }
