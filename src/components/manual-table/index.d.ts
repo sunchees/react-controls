@@ -49,4 +49,4 @@ export interface ManualTableProps extends TableProps {
  */
 declare class ManualTable extends React.Component<ManualTableProps> {}
 
-export default Table;
+export default ManualTable;

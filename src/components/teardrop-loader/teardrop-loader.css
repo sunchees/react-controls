@@ -11,8 +11,8 @@
   bottom: 0;
   right: 0;
   margin: auto;
-  height: 32px;
-  width: 32px;
+  height: inherit;
+  width: inherit;
 }
 .teardrop-loader span::before,
 .teardrop-loader span::after {
@@ -24,24 +24,12 @@
   bottom: 0;
   right: 0;
   margin: auto;
-  height: 32px;
-  width: 32px;
+  height: inherit;
+  width: inherit;
   border: 2px solid #424242;
   border-radius: 50%;
   opacity: 0;
-  -webkit-animation: teardrop-loader-1 1.5s cubic-bezier(0.075, 0.82, 0.165, 1)
-    infinite;
   animation: teardrop-loader-1 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
-}
-@-webkit-keyframes teardrop-loader-1 {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0) scale(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translate3d(0, 0, 0) scale(1.5);
-    opacity: 0;
-  }
 }
 @keyframes teardrop-loader-1 {
   0% {
@@ -54,20 +42,8 @@
   }
 }
 .teardrop-loader span::after {
-  -webkit-animation: teardrop-loader-2 1.5s cubic-bezier(0.075, 0.82, 0.165, 1)
-    0.25s infinite;
   animation: teardrop-loader-2 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) 0.25s
     infinite;
-}
-@-webkit-keyframes teardrop-loader-2 {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0) scale(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: translate3d(0, 0, 0) scale(1);
-    opacity: 0;
-  }
 }
 @keyframes teardrop-loader-2 {
   0% {

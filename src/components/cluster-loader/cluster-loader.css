@@ -2,17 +2,7 @@
   position: relative;
   height: 32px;
   width: 32px;
-  -webkit-animation: cluster-loader-1 2s cubic-bezier(0.77, 0, 0.175, 1)
-    infinite;
   animation: cluster-loader-1 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-}
-@-webkit-keyframes cluster-loader-1 {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
 }
 @keyframes cluster-loader-1 {
   0% {
@@ -35,20 +25,7 @@
   height: 8px;
   background: #424242;
   border-radius: 50%;
-  -webkit-animation: cluster-loader-2 2s cubic-bezier(0.77, 0, 0.175, 1)
-    infinite;
   animation: cluster-loader-2 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-}
-@-webkit-keyframes cluster-loader-2 {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    -webkit-transform: translate3d(24px, 0, 0) scale(0.5);
-  }
-  100% {
-    -webkit-transform: translate3d(0, 0, 0) scale(1);
-  }
 }
 @keyframes cluster-loader-2 {
   0% {
@@ -74,20 +51,7 @@
   height: 8px;
   background: #424242;
   border-radius: 50%;
-  -webkit-animation: cluster-loader-3 2s cubic-bezier(0.77, 0, 0.175, 1)
-    infinite;
   animation: cluster-loader-3 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-}
-@-webkit-keyframes cluster-loader-3 {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    -webkit-transform: translate3d(-24px, 0, 0) scale(0.5);
-  }
-  100% {
-    -webkit-transform: translate3d(0, 0, 0) scale(1);
-  }
 }
 @keyframes cluster-loader-3 {
   0% {
@@ -108,8 +72,8 @@
   bottom: 0;
   right: 0;
   margin: auto;
-  height: 32px;
-  width: 32px;
+  height: inherit;
+  width: inherit;
 }
 .cluster-loader span::before {
   content: "";
@@ -124,20 +88,7 @@
   height: 8px;
   background: #424242;
   border-radius: 50%;
-  -webkit-animation: cluster-loader-4 2s cubic-bezier(0.77, 0, 0.175, 1)
-    infinite;
   animation: cluster-loader-4 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-}
-@-webkit-keyframes cluster-loader-4 {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    -webkit-transform: translate3d(0, 24px, 0) scale(0.5);
-  }
-  100% {
-    -webkit-transform: translate3d(0, 0, 0) scale(1);
-  }
 }
 @keyframes cluster-loader-4 {
   0% {
@@ -163,20 +114,7 @@
   height: 8px;
   background: #424242;
   border-radius: 50%;
-  -webkit-animation: cluster-loader-5 2s cubic-bezier(0.77, 0, 0.175, 1)
-    infinite;
   animation: cluster-loader-5 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-}
-@-webkit-keyframes cluster-loader-5 {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    -webkit-transform: translate3d(0, -24px, 0) scale(0.5);
-  }
-  100% {
-    -webkit-transform: translate3d(0, 0, 0) scale(1);
-  }
 }
 @keyframes cluster-loader-5 {
   0% {
