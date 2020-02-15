@@ -41,7 +41,8 @@ class ManualTable extends React.Component {
       this.setState({ sort: { ...this.props.defaultSort } });
 
     if (
-      this.state.filter !== prevState.filter
+      this.state.filter !== prevState.filter ||
+      this.state.sort !== prevState.sort
     ) {
       clearTimeout(this.getDataHandle);
       this.getDataHandle = setTimeout(() => {
@@ -49,9 +50,6 @@ class ManualTable extends React.Component {
         this.getData();
       }, this.props.getDataOnFilterChangeDelay);
     }
-
-    if (this.state.sort !== prevState.sort)
-      this.getData();
   }
 
   componentWillUnmount() {
