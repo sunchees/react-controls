@@ -51,7 +51,8 @@ export default [
     ],
     plugins: [
       postcss({
-        extensions: ['.css']
+        extensions: ['.css'],
+        extract: './lib/css/styles.css'
       }),
       babel({
         exclude: 'node_modules/**'
