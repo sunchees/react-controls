@@ -101,8 +101,8 @@ class ManualTable extends React.Component {
     this.setState({ loading: true });
 
     this.props.getData(
-      this.state.filter,
-      this.state.sort,
+      { ...this.state.filter },
+      { ...this.state.sort },
       page,
       this.props.pageSize,
       (data = []) => {
