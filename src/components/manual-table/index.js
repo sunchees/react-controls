@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import autobind from 'autobind-decorator';
 import isEqual from 'lodash/isEqual';
+import map from 'lodash/map';
 import Table from '../table';
 
 /**
@@ -36,10 +37,10 @@ class ManualTable extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (!isEqual(this.props.defaultFilter, prevProps.defaultFilter))
-      this.setState({ filter: { ...this.props.defaultFilter } });
+      this.setState({ filter: { ...this.state.filter, ...this.props.defaultFilter } });
 
     if (!isEqual(this.props.defaultSort, prevProps.defaultSort))
-      this.setState({ sort: { ...this.props.defaultSort } });
+      this.setState({ sort: { ...this.state.sort, ...this.props.defaultSort } });
 
     if (
       !isEqual(this.state.filter, prevState.filter) ||
@@ -89,7 +90,8 @@ class ManualTable extends React.Component {
 
   onPageChange(page) {
     this.setState({ page });
-    if (page >= this.state.pages - 1 && !this.state.noMoreData) this.getData(page, true);
+    if (page >= this.state.pages - 1 && !this.state.noMoreData)
+      this.getData(page, true);
   }
 
   getData(page = 0, concatData = false) {
@@ -115,7 +117,9 @@ class ManualTable extends React.Component {
             ? noMoreData
               ? this.state.pages
               : this.state.pages + 1
-            : noMoreData ? 1 : 2,
+            : noMoreData
+            ? 1
+            : 2,
           noMoreData
         });
       }
@@ -132,12 +136,7 @@ class ManualTable extends React.Component {
       ...props
     } = this.props;
 
-    const {
-      page,
-      pages,
-      data,
-      loading
-    } = this.state;
+    const { page, pages, data, loading } = this.state;
 
     return (
       <Table
@@ -153,6 +152,14 @@ class ManualTable extends React.Component {
         onPageChange={this.onPageChange}
         onFilteredChange={this.onFiltersUpdate}
         onSortedChange={this.onSortsUpdate}
+        defaultFiltered={map(this.state.filter, (value, key) => ({
+          id: key,
+          value
+        }))}
+        defaultSorted={map(this.state.sort, (value, key) => ({
+          id: key,
+          desc: value === -1
+        }))}
       />
     );
   }
