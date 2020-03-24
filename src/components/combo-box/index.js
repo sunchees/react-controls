@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autobind from 'autobind-decorator';
+import isEqual from 'lodash/isEqual';
 import Input from '../input';
 import ContentHeightScrollbar from '../content-height-scrollbar';
 import Button from '../button';
@@ -151,15 +152,16 @@ class ComboBox extends React.Component {
           <div className='combo-box__content-wrap'>
             <ContentHeightScrollbar
               {...scrollbarProps}
-              className={`combo-box__scrollbar ${scrollbarProps.className || ''}`}
+              className={`combo-box__scrollbar ${scrollbarProps.className ||
+                ''}`}
             >
               {items.filter(this.filterFunction).map((item, index) => (
                 <ItemComponent
                   key={index}
                   className={`combo-box__item ${
-                    item === this.state.selected ? 'selected' : ''
+                    isEqual(item, this.state.selected) ? 'selected' : ''
                   }`}
-                  selected={item === this.state.selected}
+                  selected={isEqual(item, this.state.selected)}
                   onMouseDown={this.onItemClick}
                   item={item}
                   displayField={displayField}

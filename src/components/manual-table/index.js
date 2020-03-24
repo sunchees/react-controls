@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autobind from 'autobind-decorator';
+import isEqual from 'lodash/isEqual';
 import Table from '../table';
 
 /**
@@ -34,15 +35,15 @@ class ManualTable extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.defaultFilter !== prevProps.defaultFilter)
+    if (!isEqual(this.props.defaultFilter, prevProps.defaultFilter))
       this.setState({ filter: { ...this.props.defaultFilter } });
 
-    if (this.props.defaultSort !== prevProps.defaultSort)
+    if (!isEqual(this.props.defaultSort, prevProps.defaultSort))
       this.setState({ sort: { ...this.props.defaultSort } });
 
     if (
-      this.state.filter !== prevState.filter ||
-      this.state.sort !== prevState.sort
+      !isEqual(this.state.filter, prevState.filter) ||
+      !isEqual(this.state.sort, prevState.sort)
     ) {
       clearTimeout(this.getDataHandle);
       this.getDataHandle = setTimeout(() => {
@@ -126,7 +127,7 @@ class ManualTable extends React.Component {
       defaultFilter,
       defaultSort,
       getData,
-      getDataDelay,
+      getDataOnFilterChangeDelay,
       pageSize,
       ...props
     } = this.props;

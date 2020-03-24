@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import autobind from 'autobind-decorator';
+import isEqual from 'lodash/isEqual';
 import ContentHeightScrollbar from '../content-height-scrollbar';
 import Button from '../button';
 import './dropdown.css';
@@ -120,15 +121,16 @@ class Dropdown extends React.Component {
           <div className='dropdown__content-wrap'>
             <ContentHeightScrollbar
               {...scrollbarProps}
-              className={`dropdown__scrollbar ${scrollbarProps.className || ''}`}
+              className={`dropdown__scrollbar ${scrollbarProps.className ||
+                ''}`}
             >
               {items.map((item, index) => (
                 <ItemComponent
                   key={index}
                   className={`dropdown__item ${
-                    item === this.state.selected ? 'selected' : ''
+                    isEqual(item, this.state.selected) ? 'selected' : ''
                   }`}
-                  selected={item === this.state.selected}
+                  selected={isEqual(item, this.state.selected)}
                   onMouseDown={this.onItemClick}
                   item={item}
                   displayField={displayField}

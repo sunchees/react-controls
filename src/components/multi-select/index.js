@@ -21,17 +21,21 @@ class DefaultMultiSelectListItem extends React.PureComponent {
       <Row className={`multi-select__list-item ${this.props.className || ''}`}>
         <Text
           className='multi-select__list-item__value'
-          value={this.props.item
-            ? this.props.displayField
-              ? `${this.props.item[this.props.displayField]}`
-              : `${this.props.item}`
-            : null}
+          value={
+            this.props.item
+              ? this.props.displayField
+                ? `${this.props.item[this.props.displayField]}`
+                : `${this.props.item}`
+              : null
+          }
         />
         <Button
           className='multi-select__list-item__deselect-button'
           onClick={this.onDeselectClick}
           disabled={this.props.disabled}
-        >✕</Button>
+        >
+          ✕
+        </Button>
       </Row>
     );
   }
@@ -66,10 +70,7 @@ class MultiSelect extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.selected !== this.state.selected &&
-      this.props.onChange
-    )
+    if (prevState.selected !== this.state.selected && this.props.onChange)
       this.props.onChange(this.state.selected, this.props.name);
   }
 
@@ -130,10 +131,10 @@ class MultiSelect extends React.Component {
           className='multi-select__combo-box'
           ref={this.setComboBoxRef}
           disabled={disabled}
-          items={
-            items.filter(item =>
-              !this.state.selected.find((selected => selected === item)))
-          }
+          items={items.filter(
+            item =>
+              !this.state.selected.find(selected => isEqual(selected, item))
+          )}
           onChange={this.selectItem}
           displayField={displayField}
         />
