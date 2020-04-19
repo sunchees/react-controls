@@ -1,6 +1,5 @@
 .combo-box {
   position: relative;
-  width: 217px;
   min-height: 32px;
   border-radius: 5px;
   border: 1px solid #d3d3d3;
@@ -19,16 +18,25 @@
   width: 100%;
   height: 38px;
   text-align: left;
-  border-radius: unset;
   font-size: 16px;
   padding: 10px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  
+  border-radius: unset;
+  border-bottom: unset;
+  border-left: unset;
+  border-right: unset;
 }
 
 .combo-box__input {
-  border-radius: unset;
+  width: calc(100% - 20px); /* Ширина комбо-бокса - отступы в поле ввода */
+  border-radius: inherit;
+  border: unset;
+}
+.combo-box__input:focus {
+  border: unset;
 }
 
 .combo-box__content-wrap {

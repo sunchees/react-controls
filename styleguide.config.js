@@ -1,5 +1,5 @@
 module.exports = {
-  components: 'src/components/**/index.js',
+  title: 'UI-Controls',
   ignore: [],
   styles: {
     StyleGuide: {
@@ -7,5 +7,15 @@ module.exports = {
         fontFamily: 'Arial'
       }
     }
-  }
+  },
+  sections: [
+    {
+      name: 'UI-Controls',
+      content: './styleguide.md'
+    },
+    {
+      name: 'Компоненты',
+      components: 'src/components/**/index.js'
+    }
+  ]
 };

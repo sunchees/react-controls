@@ -1,6 +1,5 @@
 .dropdown {
   position: relative;
-  width: 217px;
   min-height: 32px;
   border-radius: 5px;
   border: 1px solid #d3d3d3;
@@ -20,12 +19,20 @@
   width: 100%;
   height: 38px;
   text-align: left;
-  border-radius: unset;
   font-size: 16px;
   padding: 10px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+
+  border-radius: unset;
+  border-bottom: unset;
+  border-left: unset;
+  border-right: unset;
+}
+
+.dropdown__title {
+  border-top: unset;
 }
 
 .dropdown__title:disabled {
