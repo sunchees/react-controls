@@ -1,0 +1,87 @@
+.dash-loader ::after,
+.dash-loader ::before {
+  box-sizing: border-box;
+}
+
+.dash-loader {
+  position: relative;
+  display: block;
+  height: 32px;
+  width: 32px;
+  animation: dash-loader-1 3s linear infinite;
+}
+@keyframes dash-loader-1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.dash-loader span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: inherit;
+  width: inherit;
+  clip: rect(16px, 32px, 32px, 0);
+  animation: dash-loader-2 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+@-webkit-keyframes dash-loader-2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes dash-loader-2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.dash-loader span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: inherit;
+  width: inherit;
+  border: 3px solid transparent;
+  border-top: 3px solid #424242;
+  border-radius: 50%;
+  animation: dash-loader-3 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+@keyframes dash-loader-3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.dash-loader span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: inherit;
+  width: inherit;
+  border: 3px solid rgba(66, 66, 66, 0.5);
+  border-radius: 50%;
+}

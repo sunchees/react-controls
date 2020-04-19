@@ -1,0 +1,28 @@
+.textarea-with-scrollbar {
+  padding: 7px 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+}
+
+.textarea-with-scrollbar__scrollbar.scrollbar > .scrollbar__track.horizontal {
+  height: 7px;
+  border: none;
+}
+
+.textarea-with-scrollbar__scrollbar.scrollbar > .scrollbar__track.vertical {
+  width: 7px;
+  border: none;
+}
+
+.textarea-with-scrollbar__textarea {
+  margin-right: 9px;
+  width: calc(100% - 9px);
+  border: unset;
+  padding: unset;
+}
+
+.textarea-with-scrollbar__textarea:focus,
+.textarea-with-scrollbar__textarea.error {
+  border: none;
+  box-shadow: none;
+}

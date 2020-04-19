@@ -1,0 +1,31 @@
+.button-with-loader {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-with-loader__button {
+  flex-shrink: 0;
+}
+
+.button-with-loader__button.loading:disabled {
+  opacity: 1;
+}
+
+.button-with-loader__loader {
+  width: 30px;
+  height: 30px;
+  margin: auto;
+}
+
+.button-with-loader__success,
+.button-with-loader__error {
+  text-align: center;
+  margin-top: 4px;
+  font-size: 14px;
+}
+.button-with-loader__error {
+  color: #d22c75;
+}

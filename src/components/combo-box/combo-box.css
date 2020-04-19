@@ -1,0 +1,64 @@
+.combo-box {
+  position: relative;
+  min-height: 32px;
+  border-radius: 5px;
+  border: 1px solid #d3d3d3;
+}
+.combo-box.open {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.combo-box.error {
+  border-color: #d22c75;
+  box-shadow: 0 0 6px 0#d22c75;
+}
+
+.combo-box__item {
+  position: relative;
+  width: 100%;
+  height: 38px;
+  text-align: left;
+  font-size: 16px;
+  padding: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  
+  border-radius: unset;
+  border-bottom: unset;
+  border-left: unset;
+  border-right: unset;
+}
+
+.combo-box__input {
+  width: calc(100% - 20px); /* Ширина комбо-бокса - отступы в поле ввода */
+  border-radius: inherit;
+  border: unset;
+}
+.combo-box__input:focus {
+  border: unset;
+}
+
+.combo-box__content-wrap {
+  position: absolute;
+  width: 100%;
+  max-height: 140px;
+}
+
+.combo-box__scrollbar {
+  max-height: inherit;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+  border-top: none;
+  border-radius: 0px 0px 5px 5px;
+  left: -1px;
+  z-index: 1;
+}
+
+.combo-box__scrollbar > .scrollbar__track.horizontal {
+  visibility: hidden;
+}
+
+.combo-box__item:hover {
+  background-color: #deecff;
+}

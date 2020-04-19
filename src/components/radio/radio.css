@@ -1,0 +1,13 @@
+.radio {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #d3d3d3;
+  border-radius: 100%;
+  flex-shrink: 0;
+}
+
+.radio.selected {
+  background: #424242;
+  background-clip: content-box;
+  padding: 3px;
+}
