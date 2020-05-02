@@ -548,6 +548,18 @@
   justify-content: space-between;
 }
 
+.ReactTable .-pagination .-btn {
+  width: 110px;
+}
+.ReactTable .-pagination {
+  justify-content: center;
+}
+.ReactTable .-pagination .-previous,
+.ReactTable .-pagination .-center,
+.ReactTable .-pagination .-next {
+  display: flex;
+  flex: none;
+}
 .modal {
   position: fixed;
   top: 0;

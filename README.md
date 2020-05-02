@@ -7,7 +7,7 @@ React-компоненты, предоставляющие базовые эле
   ```json
     {
       "devDependencies": {
-        "ui-controls": "git+ssh://git@git.hostco.ru:dps/commons/ui-controls#1.0.22",
+        "ui-controls": "git+ssh://git@git.hostco.ru:dps/commons/ui-controls#1.0.23",
       }
     }
   ```
