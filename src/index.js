@@ -10,6 +10,7 @@ import ContentHeightScrollbar from './components/content-height-scrollbar';
 import DashLoader from './components/dash-loader';
 import Dropdown from './components/dropdown';
 import DropdownWithLabel from './components/dropdown-with-label';
+import ExternalLink from './components/external-link';
 import Input from './components/input';
 import InputWithLabel from './components/input-with-label';
 import ManualTable from './components/manual-table';
@@ -44,6 +45,7 @@ export {
   DashLoader,
   Dropdown,
   DropdownWithLabel,
+  ExternalLink,
   Input,
   InputWithLabel,
   ManualTable,
