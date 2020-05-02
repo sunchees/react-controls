@@ -1,6 +1,6 @@
 {
   "name": "ui-controls",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "basic react ui controls and utility components",
   "main": "lib/cjs/index.js",
   "module": "lib/es/index.js",
@@ -20,7 +20,8 @@
   "private": true,
   "typings": "./src/index.d.ts",
   "peerDependencies": {
-    "react": "16.x"
+    "react": "16.x",
+    "react-router-dom": "5.x"
   },
   "devDependencies": {
     "@babel/core": "7.4.5",
