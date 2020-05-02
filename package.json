@@ -1,6 +1,6 @@
 {
   "name": "ui-controls",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "basic react ui controls and utility components",
   "main": "lib/index.js",
   "module": "lib/index.js",
