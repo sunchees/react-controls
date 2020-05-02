@@ -1,9 +1,4 @@
-.external-link > a,
-.external-link > a:focus,
-.external-link > a:hover,
-.external-link > a:active {
-  outline: none;
-}
 .external-link {
   color: #42a5f5;
+  outline: none;
 }

@@ -7,7 +7,7 @@
 }
 
 .radio.selected {
-  background: #424242;
+  background-color: #424242;
   background-clip: content-box;
   padding: 3px;
 }

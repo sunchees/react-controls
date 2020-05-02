@@ -9,7 +9,7 @@ https://git.hostco.ru/dps/commons/ui-controls
   ```json
     {
       "devDependencies": {
-        "ui-controls": "git+ssh://git@git.hostco.ru:dps/commons/ui-controls#1.0.18",
+        "ui-controls": "git+ssh://git@git.hostco.ru:dps/commons/ui-controls#1.0.22",
       }
     }
   ```
@@ -35,17 +35,5 @@ https://git.hostco.ru/dps/commons/ui-controls
 4. (Опционально) Импортировать стандартный набор стилей для компонентов. Для упрощения процесса кастомизации стандартных стилей, рекомендуется импортировать стили по умолчанию в качестве самого первого модуля на веб-странице вашего проекта. Это может быть файл index.js, в котором выполняется рендеринг корневого компонента React.
 
   ```jsx static
-    import 'ui-controls/lib/css/styles.css';
-  ```
-
-5. (Опционально) В случае, если в вашем проекте не используется оптимизация импортируемых модулей, вы можете захотеть импортировать компоненты из библиотеки изолированно от остальных. Изолированный импорт возможен в common-js формате:
-
-  ```jsx static
-    import InputWithLabel from 'ui-controls/lib/cjs/input-with-label';
-  ```
-
-  Либо в формате ECMAscript:
-
-  ```jsx static
-    import InputWithLabel from 'ui-controls/lib/es/input-with-label';
+    import 'ui-controls/lib/styles.css';
   ```
