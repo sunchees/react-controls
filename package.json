@@ -1,9 +1,9 @@
 {
   "name": "ui-controls",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "basic react ui controls and utility components",
-  "main": "lib/cjs/index.js",
-  "module": "lib/es/index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "files": [
     "/lib",
     "/src"
