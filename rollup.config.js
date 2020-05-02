@@ -22,6 +22,7 @@ export default [
       'dash-loader': component('dash-loader'),
       dropdown: component('dropdown'),
       'dropdown-with-label': component('dropdown-with-label'),
+      'external-link': component('external-link'),
       input: component('input'),
       'input-with-label': component('input-with-label'),
       'manual-table': component('manual-table'),
