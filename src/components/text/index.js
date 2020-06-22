@@ -12,12 +12,13 @@ const Text = ({
   value,
   capitalized = false,
   bold = false,
+  multiline = true,
   ...props
 }) => (
   <span
     className={`text ${capitalized ? 'capitalized' : ''} ${
       bold ? 'bold' : ''
-    } ${className}`}
+    } ${multiline ? 'multiline' : ''} ${className}`}
     {...props}
   >
     {value}
@@ -40,5 +41,11 @@ Text.propTypes = {
    * <br>
    * Если флаг выставлен в значение true - к тексту применяется стиль 'bold'
    */
-  bold: PropTypes.bool
+  bold: PropTypes.bool,
+  /**
+   * Флаг, определяющий нужно ли отображать 'props.value' в несколько строк, при наличии переносов или ограниченной ширине.
+   * <br>
+   * Если флаг выставлен в значение true - к тексту применяется стиль 'multiline'. По умолчанию true
+   */
+  multiline: PropTypes.bool
 };
