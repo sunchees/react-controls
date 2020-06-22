@@ -26,6 +26,7 @@ import Scrollbar from './components/scrollbar';
 import Table from './components/table';
 import TeardropLoader from './components/teardrop-loader';
 import Text from './components/text';
+import TextWithLabel from './components/text-with-label';
 import Textarea from './components/textarea';
 import TextareaWithLabel from './components/textarea-with-label';
 import TextareaWithScrollbar from './components/textarea-with-scrollbar';
@@ -61,6 +62,7 @@ export {
   Table,
   TeardropLoader,
   Text,
+  TextWithLabel,
   Textarea,
   TextareaWithLabel,
   TextareaWithScrollbar,

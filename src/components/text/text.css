@@ -10,3 +10,7 @@
 .text.bold {
   font-weight: bold;
 }
+
+.text.multiline { 
+  white-space: pre-wrap;
+}

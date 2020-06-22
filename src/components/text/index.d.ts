@@ -13,6 +13,11 @@ export interface TextProps extends React.HTMLProps<HTMLSpanElement> {
    * Если флаг выставлен в значение true - к тексту применяется стиль 'bold'
    */
   bold?: boolean;
+  /**
+   * Флаг, определяющий нужно ли отображать 'props.value' в несколько строк, при наличии переносов или ограниченной ширине.
+   * Если флаг выставлен в значение true - к тексту применяется стиль 'multiline'. По умолчанию true
+   */
+  multiline?: boolean;
 }
 
 /**
