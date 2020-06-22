@@ -116,6 +116,9 @@
   font-weight: bold;
 }
 
+.text.multiline { 
+  white-space: pre-wrap;
+}
 .button-with-loader {
   width: fit-content;
   height: fit-content;
@@ -772,6 +775,10 @@
     opacity: 0;
   }
 }
+.text-with-label__text {
+  line-height: 21px;
+}
+
 .textarea {
   outline: none;
   cursor: text;
