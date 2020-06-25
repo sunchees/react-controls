@@ -28,7 +28,7 @@
 }
 
 .combo-box__input {
-  width: calc(100% - 20px - 2px); /* Ширина комбо-бокса - отступы в поле ввода - границы поля ввода */
+  width: 100%;
   border-radius: 5px;
 }
 .combo-box__input:focus {
@@ -46,7 +46,6 @@
 
 .combo-box__scrollbar {
   max-height: inherit;
-  max-width: calc(100% - 2px); /* Ширина родителя - ширина границ */
   background-color: #fff;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;

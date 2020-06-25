@@ -3,8 +3,9 @@ module.exports = {
   ignore: [],
   styles: {
     StyleGuide: {
-      '@global body': {
-        fontFamily: 'Arial'
+      '@global body *': {
+        fontFamily: 'Arial',
+        boxSizing: 'border-box'
       }
     }
   },
