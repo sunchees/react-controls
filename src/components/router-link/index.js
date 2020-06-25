@@ -8,7 +8,7 @@ import './router-link.css';
  * Представляет собой обертку над компонентом Link из react-router-dom с добавлением стилей.
  * Содержит функционал авто-проверки активности ссылки.
  */
-class RouterLink extends React.PureComponent {
+class _RouterLink extends React.PureComponent {
   isActive() {
     const path = this.props.pattern || this.props.to;
     return !!matchPath(this.props.location.pathname, {
@@ -23,6 +23,7 @@ class RouterLink extends React.PureComponent {
       pattern,
       location,
       history,
+      staticContext,
       ...props
     } = this.props;
 
@@ -39,10 +40,11 @@ class RouterLink extends React.PureComponent {
   }
 }
 
-export default withRouter(RouterLink);
+const RouterLink = withRouter(_RouterLink);
+
+export default RouterLink;
 
 RouterLink.propTypes = {
-  ...RouterLink.propTypes,
   /**
    * Шаблон для проверки активности ссылки.
    * <br>
