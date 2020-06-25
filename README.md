@@ -7,7 +7,7 @@ React-компоненты, предоставляющие базовые эле
   ```json
     {
       "devDependencies": {
-        "ui-controls": "git+ssh://git@git.hostco.ru:dps/commons/ui-controls#1.0.25",
+        "ui-controls": "git+ssh://git@git.hostco.ru:dps/commons/ui-controls#1.0.26",
       }
     }
   ```
@@ -58,8 +58,8 @@ React-компоненты, предоставляющие базовые эле
   ```
 8. Создать в GIT-tag с новой версией:
   ```
-    git tag 1.0.25
-    git push origin 1.0.25
+    git tag 1.0.26
+    git push origin 1.0.26
   ```
 
 ## Работа с документацией (style-guide)
