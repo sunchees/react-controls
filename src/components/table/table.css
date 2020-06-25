@@ -27,3 +27,8 @@
   display: flex;
   flex: none;
 }
+
+.ReactTable.-highlight .rt-tbody .rt-tr:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  cursor: pointer;
+}

@@ -1,8 +1,6 @@
 .dropdown {
   position: relative;
   min-height: 32px;
-  border-radius: 5px;
-  border: 1px solid #d3d3d3;
 }
 .dropdown.open {
   border-bottom-left-radius: 0px;
@@ -24,15 +22,25 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-
-  border-radius: unset;
-  border-bottom: unset;
-  border-left: unset;
-  border-right: unset;
 }
 
 .dropdown__title {
-  border-top: unset;
+  border-radius: 5px;
+  padding-right: 30px;
+}
+
+.dropdown__item {
+  border: unset;
+  border-radius: unset;
+  border-top: 1px solid #d3d3d3;
+}
+
+.dropdown.open > .dropdown__title {
+  border-bottom: unset;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .dropdown__title:disabled {
@@ -58,11 +66,12 @@
 
 .dropdown__scrollbar {
   max-height: inherit;
+  max-width: calc(100% - 2px); /* Ширина родителя - ширина границ */
   background-color: #fff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   border: 1px solid #d3d3d3;
-  border-top: none;
-  border-radius: 0px 0px 5px 5px;
-  left: -1px;
+  border-top: unset;
   z-index: 1;
 }
 
