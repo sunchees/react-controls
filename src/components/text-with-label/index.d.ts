@@ -5,6 +5,11 @@ import { TextProps } from "../text";
 export interface TextWithLabelProps
   extends React.HTMLProps<WrapWithLabelProps> {
   /**
+   * Скрывает компонент в случае, если textProps.value не указан
+   * По умолчанию: true
+   */
+  hideIfEmpty?: PropTypes.bool,
+  /**
    * Свойства, передаваемые вложенному компоненту <Text />
    */
   textProps?: TextProps;

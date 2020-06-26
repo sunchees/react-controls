@@ -12,12 +12,17 @@ const TextWithLabel = ({
   className,
   label,
   mandatory = false,
+  hideIfEmpty = true,
   textProps = {}
-}) => (
-  <WrapWithLabel className={className} label={label} mandatory={mandatory}>
-    <Text {...textProps} className={`text-with-label__text ${textProps.className || ''}`} />
-  </WrapWithLabel>
-);
+}) =>
+  textProps.value || !hideIfEmpty ? (
+    <WrapWithLabel className={className} label={label} mandatory={mandatory}>
+      <Text
+        {...textProps}
+        className={`text-with-label__text ${textProps.className || ''}`}
+      />
+    </WrapWithLabel>
+  ) : null;
 
 export default TextWithLabel;
 
@@ -32,6 +37,12 @@ TextWithLabel.propTypes = {
    * true - Добавляет класс 'mandatory' к компоненту обертки
    */
   mandatory: PropTypes.bool,
+  /**
+   * Скрывает компонент в случае, если textProps.value не указан
+   * <br>
+   * По умолчанию: true
+   */
+  hideIfEmpty: PropTypes.bool,
   /**
    * Свойства компонента [Text](/#text).
    */
