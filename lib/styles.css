@@ -557,6 +557,7 @@
 
 .ReactTable .-pagination .-btn {
   width: 110px;
+  text-align: center;
 }
 .ReactTable .-pagination {
   justify-content: center;
