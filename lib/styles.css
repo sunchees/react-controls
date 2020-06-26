@@ -327,6 +327,7 @@
   padding: 10px;
   color: #696969;
   font-size: 16px;
+  height: 40px;
 }
 
 .input:focus {
@@ -406,8 +407,6 @@
   border-radius: 5px;
 }
 .combo-box__input:focus {
-  padding-bottom: 11px;
-  border-bottom: unset;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
@@ -469,7 +468,7 @@
 .dropdown__item {
   position: relative;
   width: 100%;
-  height: 38px;
+  height: 40px;
   text-align: left;
   font-size: 16px;
   padding: 10px;
@@ -490,7 +489,6 @@
 }
 
 .dropdown.open > .dropdown__title {
-  border-bottom: unset;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-left-radius: 0px;
