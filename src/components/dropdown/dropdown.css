@@ -1,10 +1,5 @@
 .dropdown {
   position: relative;
-  min-height: 32px;
-}
-.dropdown.open {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
 }
 .dropdown.error {
   border-color: #d22c75;
@@ -36,8 +31,6 @@
 }
 
 .dropdown.open > .dropdown__title {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
@@ -55,6 +48,13 @@
   display: block;
   border: 5px solid transparent;
   border-top: 5px solid #424242;
+}
+
+.dropdown.open > .dropdown__title:before {
+  top: unset;
+  bottom: calc(50% - 2.5px);
+  border: 5px solid transparent;
+  border-bottom: 5px solid #424242;
 }
 
 .dropdown__content-wrap {

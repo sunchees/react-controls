@@ -2,6 +2,7 @@ import React from 'react';
 import autobind from 'autobind-decorator';
 import ReactHeight from 'react-height';
 import Scrollbar from '../scrollbar';
+import './content-height-scrollbar.css';
 
 class InnerContentHeightScrollbar extends React.Component {
   @autobind
@@ -26,7 +27,12 @@ class InnerContentHeightScrollbar extends React.Component {
         ref={this.setRef}
         {...props}
       >
-        <ReactHeight onHeightReady={this.onHeightReady}>{children}</ReactHeight>
+        <ReactHeight
+          className='content-height-scrollbar__content-wrap'
+          onHeightReady={this.onHeightReady}
+        >
+          {children}
+        </ReactHeight>
       </Scrollbar>
     );
   }

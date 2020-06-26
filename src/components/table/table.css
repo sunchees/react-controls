@@ -32,3 +32,40 @@
   background-color: rgba(0, 0, 0, 0.1) !important;
   cursor: pointer;
 }
+
+.ReactTable .rt-thead.-filters .rt-th {
+  overflow: visible;
+  height: fit-content;
+}
+
+.ReactTable .rt-thead.-filters .input,
+.ReactTable .rt-thead.-filters .combo-box__input {
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+}
+
+.ReactTable .rt-thead.-filters .input,
+.ReactTable .rt-thead.-filters .dropdown__title,
+.ReactTable .rt-thead.-filters .dropdown__item,
+.ReactTable .rt-thead.-filters .combo-box__item {
+  height: 100%;
+  width: 100%;
+  padding: 5px 7px;
+}
+
+.ReactTable .rt-thead.-filters .dropdown__title {
+  padding-right: 30px;
+  border-radius: 3px;
+}
+
+.ReactTable .rt-thead.-filters .dropdown.open > .dropdown__title,
+.ReactTable .rt-thead.-filters .combo-box__input:focus {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.ReactTable .rt-thead.-filters .dropdown__scrollbar,
+.ReactTable .rt-thead.-filters .combo-box__scrollbar {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}

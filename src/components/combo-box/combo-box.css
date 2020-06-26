@@ -1,10 +1,5 @@
 .combo-box {
   position: relative;
-  min-height: 32px;
-}
-.combo-box.open {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
 }
 .combo-box.error {
   border-color: #d22c75;
@@ -14,7 +9,7 @@
 .combo-box__item {
   position: relative;
   width: 100%;
-  height: 38px;
+  height: 40px;
   text-align: left;
   font-size: 16px;
   padding: 10px;
