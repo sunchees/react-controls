@@ -22,8 +22,8 @@ class DefaultComboBoxItem extends React.PureComponent {
       >
         {this.props.item
           ? this.props.displayField
-            ? `${this.props.item[this.props.displayField]}`
-            : `${this.props.item}`
+            ? this.props.item[this.props.displayField]
+            : this.props.item
           : null}
       </Button>
     );
@@ -152,8 +152,9 @@ class ComboBox extends React.Component {
           <div className='combo-box__content-wrap'>
             <ContentHeightScrollbar
               {...scrollbarProps}
-              className={`combo-box__scrollbar ${scrollbarProps.className ||
-                ''}`}
+              className={`combo-box__scrollbar ${
+                scrollbarProps.className || ''
+              }`}
             >
               {items.filter(this.filterFunction).map((item, index) => (
                 <ItemComponent

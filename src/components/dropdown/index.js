@@ -21,8 +21,8 @@ class DefaultDropdownItem extends React.PureComponent {
       >
         {this.props.item
           ? this.props.displayField
-            ? `${this.props.item[this.props.displayField]}`
-            : `${this.props.item}`
+            ? this.props.item[this.props.displayField]
+            : this.props.item
           : null}
       </Button>
     );
@@ -121,8 +121,9 @@ class Dropdown extends React.Component {
           <div className='dropdown__content-wrap'>
             <ContentHeightScrollbar
               {...scrollbarProps}
-              className={`dropdown__scrollbar ${scrollbarProps.className ||
-                ''}`}
+              className={`dropdown__scrollbar ${
+                scrollbarProps.className || ''
+              }`}
             >
               {items.map((item, index) => (
                 <ItemComponent
