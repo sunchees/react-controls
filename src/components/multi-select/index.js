@@ -24,8 +24,8 @@ class DefaultMultiSelectListItem extends React.PureComponent {
           value={
             this.props.item
               ? this.props.displayField
-                ? `${this.props.item[this.props.displayField]}`
-                : `${this.props.item}`
+                ? this.props.item[this.props.displayField]
+                : this.props.item
               : null
           }
         />
