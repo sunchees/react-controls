@@ -1,3 +1,4 @@
+import './styles/styles.css';
 import Button from './components/button';
 import ButtonWithLoader from './components/button-with-loader';
 import Checkbox from './components/checkbox';

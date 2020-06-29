@@ -1,4 +1,6 @@
 .external-link {
   color: #42a5f5;
   outline: none;
+  cursor: pointer;
+  text-decoration: underline;
 }
