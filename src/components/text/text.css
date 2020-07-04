@@ -1,0 +1,16 @@
+.text {
+  display: block;
+  color: #424242;
+}
+
+.text.capitalized::first-letter {
+  text-transform: capitalize;
+}
+
+.text.bold {
+  font-weight: bold;
+}
+
+.text.multiline { 
+  white-space: pre-wrap;
+}

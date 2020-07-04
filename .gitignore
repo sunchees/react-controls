@@ -1,0 +1,10 @@
+
+**/node_modules/**
+build/**
+.idea/**
+coverage/
+.vscode
+.env
+styleguide
+npm-shrinkwrap.json
+package-lock.json

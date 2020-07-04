@@ -1,0 +1,4 @@
+.content-height-scrollbar__content-wrap {
+  display: flex;
+  flex-direction: column;
+}

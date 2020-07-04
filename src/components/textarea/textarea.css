@@ -1,0 +1,17 @@
+.textarea {
+  outline: none;
+  cursor: text;
+  resize: none;
+  padding: 10px;
+  overflow: hidden;
+  border: solid 1px #d3d3d3;
+  border-radius: 5px;
+  color: #424242;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+.textarea:focus {
+  border: 1px solid #b0bec5;
+  box-shadow: 0 0 6px 0 #b0bec5;
+}

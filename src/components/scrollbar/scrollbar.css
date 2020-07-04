@@ -1,0 +1,24 @@
+.scrollbar__track {
+  position: absolute;
+  border: none;
+  border-radius: 3px;
+}
+
+.scrollbar__track.horizontal {
+  width: 100%;
+  height: 6px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.scrollbar__track.vertical {
+  width: 6px;
+  height: 100%;
+  top: 0px;
+  right: 0px;
+}
+
+.scrollbar__thumb {
+  border-radius: inherit;
+  background: #bdcad0;
+}

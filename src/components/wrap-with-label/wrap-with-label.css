@@ -1,0 +1,15 @@
+.wrap-with-label__label {
+  line-height: 27px;
+  font-size: 12px;
+  color: #a7a7a7;
+}
+
+.wrap-with-label.mandatory > .wrap-with-label__label::after {
+  content: " *";
+  color: #d22c75;
+  font-weight: normal;
+}
+
+.wrap-with-label__empty-text {
+  line-height: 27px;
+}
