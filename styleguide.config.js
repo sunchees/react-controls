@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'UI-Controls',
+  title: 'React-Controls',
   ignore: [],
   styles: {
     StyleGuide: {
@@ -11,7 +11,7 @@ module.exports = {
   },
   sections: [
     {
-      name: 'UI-Controls',
+      name: 'React-Controls',
       content: './styleguide.md'
     },
     {

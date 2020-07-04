@@ -7,7 +7,7 @@
   ```json
     {
       "devDependencies": {
-        "ui-controls": "git+ssh://git@git.hostco.ru:dps/commons/ui-controls#1.0.33",
+        "react-controls": "git+ssh://git@github.com:sunchees/react-controls.git#1.0.33",
       }
     }
   ```
@@ -17,7 +17,7 @@
   ```
 3. Импортировать необходимые компоненты:
   ```jsx
-    import { Button } from 'ui-controls';
+    import { Button } from 'react-controls';
 
     const YourComponent = ({ handleClick, text }) => (
       <Button onClick={handleClick}>
@@ -27,16 +27,16 @@
   ```
 4. (Опционально) Импортировать стандартный набор стилей для компонентов. Для упрощения процесса кастомизации стандартных стилей, рекомендуется импортировать стили по умолчанию в качестве самого первого модуля на веб-странице вашего проекта. Это может быть файл index.js, в котором выполняется рендеринг корневого компонента React.
   ```jsx
-    import 'ui-controls/lib/styles.css';
+    import 'react-controls/lib/styles.css';
   ```
 
 ## Разработка
 
 1. Скачать исходный код библиотеки:
   ```
-    git clone git@git.hostco.ru:dps/commons/ui-controls.git
+    git clone git@git.hostco.ru:dps/commons/react-controls.git
     git checkout develop
-    cd ui-controls
+    cd react-controls
   ```
 2. Установить зависимости:
   ```

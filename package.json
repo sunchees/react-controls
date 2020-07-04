@@ -1,5 +1,5 @@
 {
-  "name": "ui-controls",
+  "name": "react-controls",
   "version": "1.0.33",
   "description": "basic react ui controls and utility components",
   "main": "lib/index.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.hostco.ru:dps/commons/ui-controls.git"
+    "url": "git@github.com:sunchees/react-controls.git"
   },
   "private": true,
   "typings": "./src/index.d.ts",
