@@ -3,11 +3,11 @@
 
 ## Использование в проекте
 
-1. Добавить в package.json импорт библиотеки из GIT. Для импорта необходимо иметь доступ к репозиторию и подключение по SSH.
+1. Добавить в package.json импорт библиотеки из GIT.
   ```json
     {
       "devDependencies": {
-        "react-controls": "git+ssh://git@github.com:sunchees/react-controls.git#1.0.33",
+        "react-controls": "git+https://git@github.com:sunchees/react-controls.git#1.0.34",
       }
     }
   ```
@@ -34,7 +34,7 @@
 
 1. Скачать исходный код библиотеки:
   ```
-    git clone git@git.hostco.ru:dps/commons/react-controls.git
+    git clone git@github.com:sunchees/react-controls.git
     git checkout develop
     cd react-controls
   ```
@@ -58,8 +58,8 @@
   ```
 8. Создать в GIT-tag с новой версией:
   ```
-    git tag 1.0.33
-    git push origin 1.0.33
+    git tag 1.0.34
+    git push origin 1.0.34
   ```
 
 ## Работа с документацией (style-guide)
