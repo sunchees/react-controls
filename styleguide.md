@@ -9,7 +9,7 @@ https://github.com/sunchees/react-controls
   ```json
     {
       "devDependencies": {
-        "react-controls": "git+https://git@github.com:sunchees/react-controls.git#1.0.34",
+        "react-controls": "git+https://git@github.com:sunchees/react-controls.git#1.0.35",
       }
     }
   ```
