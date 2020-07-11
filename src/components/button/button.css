@@ -8,6 +8,7 @@
   color: #424242;
   outline: none;
   padding: 10px;
+  height: 40px;
 }
 
 .button:disabled {
