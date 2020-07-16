@@ -342,6 +342,7 @@
   color: #424242;
   font-size: 16px;
   height: 40px;
+  background-color: transparent;
 }
 
 .input:focus {
@@ -853,16 +854,27 @@
   color: #424242;
   font-size: 16px;
   line-height: 21px;
+  background-color: transparent;
 }
 
 .textarea:focus {
   border: 1px solid #b0bec5;
   box-shadow: 0 0 6px 0 #b0bec5;
 }
+
+.textarea:disabled {
+  background-color: transparent;
+  cursor: default;
+  opacity: 0.5;
+}
 .textarea-with-scrollbar {
   padding: 7px 10px;
   border: 1px solid #d3d3d3;
   border-radius: 5px;
+}
+
+.textarea-with-scrollbar__textarea:disabled {
+  opacity: unset;
 }
 
 .textarea-with-scrollbar:focus-within {
@@ -890,4 +902,8 @@
 .textarea-with-scrollbar__textarea:focus {
   box-shadow: none;
   border: unset;
+}
+
+.textarea-with-scrollbar.disabled {
+  opacity: 0.5;
 }

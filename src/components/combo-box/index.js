@@ -41,8 +41,11 @@ class ComboBox extends React.Component {
 
     this.state = {
       open: false,
-      filter: this.props.defaultFilter || '',
-      selected: this.props.defaultSelected || null
+      filter:
+        props.defaultFilter ||
+        this.extractFilterFromItem(props.defaultSelected) ||
+        '',
+      selected: props.defaultSelected || null
     };
 
     this.scrollbar = null;
@@ -53,7 +56,13 @@ class ComboBox extends React.Component {
       this.props.defaultSelected !== this.state.selected &&
       prevProps.defaultSelected !== this.props.defaultSelected
     )
-      this.setState({ selected: this.props.defaultSelected });
+      this.setState({
+        selected: this.props.defaultSelected,
+        filter:
+          this.props.defaultFilter ||
+          this.extractFilterFromItem(this.props.defaultSelected) ||
+          this.state.filter
+      });
   }
 
   onBlur() {
@@ -67,9 +76,7 @@ class ComboBox extends React.Component {
   onItemClick(item) {
     this.setState({
       selected: item,
-      filter: this.props.displayField
-        ? item[this.props.displayField]
-        : `${item}`,
+      filter: this.extractFilterFromItem(item),
       open: false
     });
     if (this.props.onChange) this.props.onChange(item, this.props.name);
@@ -111,7 +118,17 @@ class ComboBox extends React.Component {
   filterFunction(item) {
     return this.props.filterFunction
       ? this.props.filterFunction(item, this.state.filter)
-      : `${item || ''}`.toLowerCase().includes(this.state.filter.toLowerCase());
+      : this.extractFilterFromItem(item)
+          .toLowerCase()
+          .includes(this.state.filter.toLowerCase());
+  }
+
+  extractFilterFromItem(item) {
+    return item
+      ? this.props.displayField
+        ? item[this.props.displayField]
+        : `${item}`
+      : '';
   }
 
   render() {
