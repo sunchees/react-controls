@@ -392,6 +392,30 @@
   display: flex;
   flex-direction: column;
 }
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.combo-box-selected-item {
+  position: relative;
+}
+
+.combo-box-selected-item__deselect-button {
+  border: unset;
+  height: 100%;
+  line-height: 100%;
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  background-color: #e7e7e7;
+  border-left: 1px solid #d3d3d3;
+  border-bottom-left-radius: unset;
+  border-top-left-radius: unset;
+}
+
 .combo-box {
   position: relative;
 }
@@ -423,6 +447,13 @@
 .combo-box__input:focus {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
+}
+
+.combo-box__selected-item {
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
 }
 
 .combo-box__content-wrap {
@@ -684,11 +715,6 @@
   padding: 10px 20px 20px 20px;
   min-height: calc(100% - 52px);
 }
-.row {
-  display: flex;
-  flex-direction: row;
-}
-
 .multi-select {
   max-height: 200px;
 }
