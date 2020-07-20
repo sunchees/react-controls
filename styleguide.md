@@ -9,7 +9,7 @@ https://git.hostco.ru/dps/commons/ui-controls
   ```json
     {
       "devDependencies": {
-        "ui-controls": "git+ssh://git@git.hostco.ru:dps/commons/ui-controls#1.0.35",
+        "ui-controls": "git+ssh://git@git.hostco.ru:dps/commons/ui-controls#1.1.36",
       }
     }
   ```

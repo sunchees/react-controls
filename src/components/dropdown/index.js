@@ -3,31 +3,8 @@ import PropTypes from 'prop-types';
 import autobind from 'autobind-decorator';
 import isEqual from 'lodash/isEqual';
 import ContentHeightScrollbar from '../content-height-scrollbar';
-import Button from '../button';
 import './dropdown.css';
-
-class DefaultDropdownItem extends React.PureComponent {
-  @autobind
-  onMouseDown() {
-    this.props.onMouseDown(this.props.item);
-  }
-
-  render() {
-    return (
-      <Button
-        className={this.props.className}
-        onMouseDown={this.onMouseDown}
-        disabled={this.props.disabled}
-      >
-        {this.props.item
-          ? this.props.displayField
-            ? this.props.item[this.props.displayField]
-            : this.props.item
-          : null}
-      </Button>
-    );
-  }
-}
+import { DropdownItem } from './dropdown-item';
 
 /**
  * Компонент выпадающего списка.
@@ -90,9 +67,9 @@ class Dropdown extends React.Component {
   render() {
     const {
       className = '',
-      ItemComponent = DefaultDropdownItem,
+      ItemComponent = DropdownItem,
       items = [],
-      displayField,
+      accessor,
       defaultSelected,
       onChange,
       error,
@@ -115,7 +92,7 @@ class Dropdown extends React.Component {
           onMouseDown={this.toggleDropdown}
           disabled={disabled}
           item={this.state.selected}
-          displayField={displayField}
+          accessor={accessor}
         />
         {this.state.open && items ? (
           <div className='dropdown__content-wrap'>
@@ -134,7 +111,7 @@ class Dropdown extends React.Component {
                   selected={isEqual(item, this.state.selected)}
                   onMouseDown={this.onItemClick}
                   item={item}
-                  displayField={displayField}
+                  accessor={accessor}
                 />
               ))}
             </ContentHeightScrollbar>
@@ -157,11 +134,11 @@ Dropdown.propTypes = {
    */
   items: PropTypes.arrayOf(PropTypes.any),
   /**
-   * Название поля элемента выпадающего списка, отображаемого в выпадающем списке. Применимо в случае, если используется стандартный ItemComponent.
+   * Функция для получения текстового значения элемента списка, либо название отображаемого поля объекта. Применимо в случае, если используется стандартный ItemComponent.
    * <br>
-   * Если displayField не передан, и используется стандартный ItemComponent, то для отображения будет использоваться сам элемент списка.
+   * Если accessor не передан, и используется стандартный ItemComponent, то для отображения будет использоваться сам элемент списка.
    */
-  displayField: PropTypes.string,
+  accessor: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   /**
    * Выбранный по умолчанию элемент выпадающего списка.
    */

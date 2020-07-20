@@ -4,31 +4,10 @@ import autobind from 'autobind-decorator';
 import isEqual from 'lodash/isEqual';
 import Input from '../input';
 import ContentHeightScrollbar from '../content-height-scrollbar';
-import Button from '../button';
+import { getListItemValue } from '../../utils';
+import { ComboBoxSelectedItem } from './combo-box-selected-item';
+import { ComboBoxItem } from './combo-box-item';
 import './combo-box.css';
-
-class DefaultComboBoxItem extends React.PureComponent {
-  @autobind
-  onMouseDown() {
-    this.props.onMouseDown(this.props.item);
-  }
-
-  render() {
-    return (
-      <Button
-        className={this.props.className}
-        onMouseDown={this.onMouseDown}
-        disabled={this.props.disabled}
-      >
-        {this.props.item
-          ? this.props.displayField
-            ? this.props.item[this.props.displayField]
-            : this.props.item
-          : null}
-      </Button>
-    );
-  }
-}
 
 /**
  * Компонент выпадающего списка с фильтром.
@@ -43,7 +22,7 @@ class ComboBox extends React.Component {
       open: false,
       filter:
         props.defaultFilter ||
-        this.extractFilterFromItem(props.defaultSelected) ||
+        getListItemValue(props.defaultSelected, props.accessor) ||
         '',
       selected: props.defaultSelected || null
     };
@@ -60,7 +39,7 @@ class ComboBox extends React.Component {
         selected: this.props.defaultSelected,
         filter:
           this.props.defaultFilter ||
-          this.extractFilterFromItem(this.props.defaultSelected) ||
+          getListItemValue(this.props.defaultSelected, this.props.accessor) ||
           this.state.filter
       });
   }
@@ -76,7 +55,7 @@ class ComboBox extends React.Component {
   onItemClick(item) {
     this.setState({
       selected: item,
-      filter: this.extractFilterFromItem(item),
+      filter: getListItemValue(item, this.props.accessor),
       open: false
     });
     if (this.props.onChange) this.props.onChange(item, this.props.name);
@@ -84,6 +63,7 @@ class ComboBox extends React.Component {
 
   setFilter(filter) {
     this.setState({ filter });
+    if (this.props.onFilterChange) this.props.onFilterChange(filter);
   }
 
   /**
@@ -104,6 +84,7 @@ class ComboBox extends React.Component {
    */
   resetSelected() {
     this.setState({ selected: null });
+    if (this.props.onChange) this.props.onChange(null, this.props.name);
   }
 
   /**
@@ -118,28 +99,23 @@ class ComboBox extends React.Component {
   filterFunction(item) {
     return this.props.filterFunction
       ? this.props.filterFunction(item, this.state.filter)
-      : this.extractFilterFromItem(item)
+      : getListItemValue(item, this.props.accessor)
           .toLowerCase()
           .includes(this.state.filter.toLowerCase());
-  }
-
-  extractFilterFromItem(item) {
-    return item
-      ? this.props.displayField
-        ? item[this.props.displayField]
-        : `${item}`
-      : '';
   }
 
   render() {
     const {
       className = '',
-      ItemComponent = DefaultComboBoxItem,
+      showSelectedItem,
+      SelectedItemComponent = ComboBoxSelectedItem,
+      ItemComponent = ComboBoxItem,
       items = [],
-      displayField,
+      accessor,
       defaultFilter,
       defaultSelected,
       onChange,
+      onFilterChange,
       filterFunction,
       error,
       disabled,
@@ -157,14 +133,24 @@ class ComboBox extends React.Component {
         } ${className}`}
         onBlur={this.onBlur}
       >
-        <Input
-          {...inputProps}
-          className='combo-box__input'
-          onFocus={this.onFocus}
-          disabled={disabled}
-          onChange={this.setFilter}
-          value={this.state.filter}
-        />
+        {this.state.selected && showSelectedItem ? (
+          <SelectedItemComponent
+            className='combo-box__selected-item'
+            onDeselect={this.resetSelected}
+            disabled={disabled}
+            item={this.state.selected}
+            accessor={accessor}
+          />
+        ) : (
+          <Input
+            {...inputProps}
+            className='combo-box__input'
+            onFocus={this.onFocus}
+            disabled={disabled}
+            onChange={this.setFilter}
+            value={this.state.filter}
+          />
+        )}
         {this.state.open && items ? (
           <div className='combo-box__content-wrap'>
             <ContentHeightScrollbar
@@ -182,7 +168,7 @@ class ComboBox extends React.Component {
                   selected={isEqual(item, this.state.selected)}
                   onMouseDown={this.onItemClick}
                   item={item}
-                  displayField={displayField}
+                  accessor={accessor}
                 />
               ))}
             </ContentHeightScrollbar>
@@ -195,21 +181,33 @@ class ComboBox extends React.Component {
 
 export default ComboBox;
 
+ComboBox.defaultProps = {
+  showSelectedItem: true
+};
+
 ComboBox.propTypes = {
   /**
    * Класс компонента для отрисовки элементов выпадающего списка.
    */
   ItemComponent: PropTypes.elementType,
   /**
+   * Класс компонента для отрисовки выбранного элемента вместо поля ввода.
+   */
+  SelectedItemComponent: PropTypes.elementType,
+  /**
+   * Флаг, указывающий необходимость отрисовки компонента выбранного элемента списка вместо поля ввода. По умолчанию true
+   */
+  showSelectedItem: PropTypes.bool,
+  /**
    * Массив элементов, доступных для выбора в выпадающем списке.
    */
   items: PropTypes.arrayOf(PropTypes.any),
   /**
-   * Название поля элемента выпадающего списка, отображаемого в выпадающем списке. Применимо в случае, если используется стандартный ItemComponent.
+   * Функция для получения текстового значения элемента списка, либо название отображаемого поля объекта. Применимо в случае, если используется стандартный ItemComponent.
    * <br>
-   * Если displayField не передан, и используется стандартный ItemComponent, то для отображения будет использоваться сам элемент списка.
+   * Если accessor не передан, и используется стандартный ItemComponent, то для отображения будет использоваться сам элемент списка.
    */
-  displayField: PropTypes.string,
+  accessor: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   /**
    * Фильтр по умолчанию
    */
@@ -222,9 +220,14 @@ ComboBox.propTypes = {
    * Обработчик события изменения выбранного элемента выпадающего списка. Принимает два входящих параметра:
    * @param {any} item - новый выбранный элемент списка.
    * <br>
-   * @param {string=} name - название выпадающего списка, на основе заданного компоненту свойства "name".
+   * @param {string} name - название выпадающего списка, на основе заданного компоненту свойства "name".
    */
   onChange: PropTypes.func,
+  /**
+   * Обработчик события изменения фильтра в поле ввода выпадающего списка. Принимает входящий параметр:
+   * @param {string} filter - текст фильтра.
+   */
+  onFilterChange: PropTypes.func,
   /**
    * Функция для фильтрации элементов выпадающего списка в соответствии с введенным фильтром
    * @param {any} item - элемент списка

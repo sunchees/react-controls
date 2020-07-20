@@ -8,6 +8,7 @@ import Row from '../row';
 import Column from '../column';
 import ComboBox from '../combo-box';
 import ContentHeightScrollbar from '../content-height-scrollbar';
+import { getListItemValue } from '../../utils';
 import './multi-select.css';
 
 class DefaultMultiSelectListItem extends React.PureComponent {
@@ -23,9 +24,7 @@ class DefaultMultiSelectListItem extends React.PureComponent {
           className='multi-select__list-item__value'
           value={
             this.props.item
-              ? this.props.displayField
-                ? this.props.item[this.props.displayField]
-                : this.props.item
+              ? getListItemValue(this.props.item, this.props.accessor)
               : null
           }
         />
@@ -121,7 +120,7 @@ class MultiSelect extends React.Component {
       items = [],
       ItemComponent = DefaultMultiSelectListItem,
       name,
-      displayField
+      accessor
     } = this.props;
 
     return (
@@ -136,7 +135,7 @@ class MultiSelect extends React.Component {
               !this.state.selected.find(selected => isEqual(selected, item))
           )}
           onChange={this.selectItem}
-          displayField={displayField}
+          accessor={accessor}
         />
         <ContentHeightScrollbar
           {...scrollbarProps}
@@ -149,7 +148,7 @@ class MultiSelect extends React.Component {
               item={item}
               disabled={disabled}
               onDeselectClick={this.deselectItem}
-              displayField={displayField}
+              accessor={accessor}
             />
           ))}
         </ContentHeightScrollbar>
@@ -170,11 +169,11 @@ MultiSelect.propTypes = {
    */
   items: PropTypes.arrayOf(PropTypes.any),
   /**
-   * Название поля элемента списка, отображаемого в выпадающем списке и в списке выбранных элементов. Применимо в случае, если используется стандартный ItemComponent.
+   * Функция для получения текстового значения элемента списка, либо название отображаемого поля объекта. Применимо в случае, если используется стандартный ItemComponent.
    * <br>
-   * Если displayField не передан, и используется стандартный ItemComponent, то для отображения будет использоваться сам элемент списка.
+   * Если accessor не передан, и используется стандартный ItemComponent, то для отображения будет использоваться сам элемент списка.
    */
-  displayField: PropTypes.string,
+  accessor: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   /**
    * Выбранные по умолчанию элементы списка.
    */

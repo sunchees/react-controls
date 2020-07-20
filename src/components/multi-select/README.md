@@ -33,7 +33,7 @@ function ComboBoxItem(props) {
     className={props.className}
     onMouseDown={onMouseDown}
   >
-    <span>{props.item ? props.item[props.displayField] : null}</span>
+    <span>{props.item ? props.item[props.accessor] : null}</span>
     <br/>
     <span>{props.item ? props.item.hiddenField : null}</span>
     <br/>
@@ -50,7 +50,7 @@ function MultiSelectItem(props) {
     style={{height: 'fit-content'}}
     className={props.className}
   >
-    <span>{props.item ? props.item[props.displayField] : null}</span>
+    <span>{props.item ? props.item[props.accessor] : null}</span>
     <br/>
     <span>{props.item ? props.item.hiddenField : null}</span>
     <button onClick={onDeselectClick}>x</button>
@@ -78,7 +78,7 @@ return <div>
     ref={setRef}
     items={items}
     name='MultiSelect 1'
-    displayField='value'
+    accessor='value'
     ItemComponent={MultiSelectItem}
     onChange={onChange}
     comboBoxProps={{

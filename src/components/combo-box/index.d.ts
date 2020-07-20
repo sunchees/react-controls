@@ -13,7 +13,7 @@ export interface ComboBoxItemProps {
    */
   onMouseDown: (item: any) => void;
   /**
-   * Флаг, отключающий выпадающий список.
+   * Флаг, отключающий элемент выпадающего списка.
    */
   disabled?: boolean;
   /**
@@ -21,13 +21,40 @@ export interface ComboBoxItemProps {
    */
   item: any;
   /**
-   * Название поля элемента выпадающего списка, отображаемого в выпадающем списке.
+   * Функция для получения текстового значения элемента списка, либо название отображаемого поля объекта. Применимо в случае, если используется стандартный ItemComponent.
+   * <br>
+   * Если accessor не передан, и используется стандартный ItemComponent, то для отображения будет использоваться сам элемент списка.
    */
-  displayField?: string
+  accessor?: string | Function
   /**
    * Флаг, указывающий на то, что данный элемент списка выбран
    */
   selected?: boolean
+}
+
+export interface ComboBoxSelectedItemProps {
+  /**
+   * CSS-класс компонента
+   */
+  className?: string;
+  /**
+   * Обработчик события нажатия на кнопку снятия выбора с элемента.
+   */
+  onDeselect: () => void;
+  /**
+   * Флаг, отключающий выбранный элемент выпадающего списка.
+   */
+  disabled?: boolean;
+  /**
+   * Выбранный элемент выпадающего списка.
+   */
+  item: any;
+  /**
+   * Функция для получения текстового значения элемента списка, либо название отображаемого поля объекта. Применимо в случае, если используется стандартный ItemComponent.
+   * <br>
+   * Если accessor не передан, и используется стандартный SelectedItemComponent, то для отображения будет использоваться сам элемент списка.
+   */
+  accessor?: string | Function
 }
 
 export interface ComboBoxProps extends React.HTMLProps<HTMLDivElement> {
@@ -36,14 +63,22 @@ export interface ComboBoxProps extends React.HTMLProps<HTMLDivElement> {
    */
   ItemComponent?: React.Component<ComboBoxItemProps>;
   /**
+   * Класс компонента для отрисовки выбранного элемента вместо поля ввода.
+   */
+  SelectedItemComponent?: React.Component<ComboBoxSelectedItemProps>,
+  /**
+   * Флаг, указывающий необходимость отрисовки компонента выбранного элемента списка вместо поля ввода. По умолчанию true
+   */
+  showSelectedItem?: boolean,
+  /**
    * Массив элементов, доступных для выбора в выпадающем списке.
    */
   items: Array<any>;
   /**
-   * Название поля элемента выпадающего списка, отображаемого в выпадающем списке. Применимо в случае, если используется стандартный ItemComponent.
-   * Если displayField не передан, и используется стандартный ItemComponent, то для отображения будет использоваться сам элемент списка.
+   * Функция для получения текстового значения элемента списка, либо название отображаемого поля объекта. Применимо в случае, если используется стандартный ItemComponent.
+   * Если accessor не передан, и используется стандартный ItemComponent, то для отображения будет использоваться сам элемент списка.
    */
-  displayField?: string;
+  accessor?: string;
   /**
    * Фильтр по умолчанию
    */
@@ -58,6 +93,11 @@ export interface ComboBoxProps extends React.HTMLProps<HTMLDivElement> {
    * @param name - название выпадающего списка, на основе заданного компоненту свойства "name".
    */
   onChange?: (item: any, name?: string) => void;
+  /**
+   * Обработчик события изменения фильтра в поле ввода выпадающего списка. Принимает входящий параметр:
+   * @param filter - текст фильтра.
+   */
+  onFilterChange?: (filter: string) => void;
   /**
    * Функция для фильтрации элементов выпадающего списка в соответствии с введенным фильтром
    * @param item - элемент списка
