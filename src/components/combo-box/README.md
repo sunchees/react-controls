@@ -18,7 +18,7 @@ const accessor = (item) => {
 return <ComboBox items={items} accessor={accessor} />;
 ```
 
-Выпадающий список с отображением поля ввода даже после выбора элемента списка
+Выпадающий список с отображением поля ввода даже после выбора элемента списка и с отключенной фильтрацией.
 
 ```js
 const items = ['[Элемент 1]', '[Элемент 2]', '[Элемент 3]', '[Элемент 4]', '[Элемент 5]'];
@@ -27,7 +27,7 @@ const accessor = (item) => {
   return `${item} #${Math.random(0, 1) * 100}`
 }
 
-return <ComboBox items={items} accessor={accessor} showSelectedItem={false} />;
+return <ComboBox items={items} accessor={accessor} showSelectedItem={false} disableFiltering={true}/>;
 ```
 
 Выпадающий список с кастомным компонентом элемента списка и обработчиками событий (события логируются в консоль)

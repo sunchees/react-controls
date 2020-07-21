@@ -118,11 +118,17 @@ class Textarea extends React.PureComponent {
       paddingTop = parseInt(styles.getPropertyValue('padding-top')),
       paddingBottom = parseInt(styles.getPropertyValue('padding-bottom'));
 
-    const minRows = Math.ceil(((minHeight || lineHeight) - (paddingTop + paddingBottom)) / lineHeight);
+    const minRows =
+      Math.ceil(
+        ((minHeight || lineHeight) - (paddingTop + paddingBottom)) / lineHeight
+      ) || 1;
     this.input.rows = minRows;
 
     const rows = Math.ceil(
-      (this.input.scrollHeight - (minHeight || lineHeight) - (paddingTop + paddingBottom)) / lineHeight
+      (this.input.scrollHeight -
+        (minHeight || lineHeight) -
+        (paddingTop + paddingBottom)) /
+        lineHeight
     );
 
     this.input.rows = minRows + rows;

@@ -105,6 +105,10 @@ export interface ComboBoxProps extends React.HTMLProps<HTMLDivElement> {
    */
   filterFunction?: (item: any, filter: string) => boolean;
   /**
+   * Флаг, отключающий фильтрацию элементов в выпадающем списке на основе фильтра в поле ввода. Используется в случае, когда содержимое списка полностью регулируется родительским компонентом, например если содержимое подгружается с задержкой с сервера.
+   */
+  disableFiltering?: boolean;
+  /**
    * Название выпадающего списка.
    */
   name?: string;
