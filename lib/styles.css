@@ -399,6 +399,17 @@
 
 .combo-box-selected-item {
   position: relative;
+  padding-right: 50px !important;
+}
+
+.combo-box-selected-item.disabled {
+  opacity: 0.5;
+}
+
+.combo-box-selected-item__value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .combo-box-selected-item__deselect-button {
@@ -414,6 +425,10 @@
   border-left: 1px solid #d3d3d3;
   border-bottom-left-radius: unset;
   border-top-left-radius: unset;
+}
+
+.combo-box-selected-item__deselect-button:disabled {
+  opacity: unset;
 }
 
 .combo-box {
@@ -879,7 +894,7 @@
   border-radius: 5px;
   color: #424242;
   font-size: 16px;
-  line-height: 21px;
+  line-height: 18px;
   background-color: transparent;
 }
 
@@ -894,7 +909,7 @@
   opacity: 0.5;
 }
 .textarea-with-scrollbar {
-  padding: 7px 10px;
+  padding: 10px;
   border: 1px solid #d3d3d3;
   border-radius: 5px;
 }

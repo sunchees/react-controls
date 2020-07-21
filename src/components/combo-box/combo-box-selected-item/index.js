@@ -16,7 +16,7 @@ export class ComboBoxSelectedItem extends React.PureComponent {
     const { className = '', item, accessor, disabled } = this.props;
 
     return (
-      <Row className={`combo-box-selected-item ${className}`}>
+      <Row className={`combo-box-selected-item ${disabled ? 'disabled' : ''} ${className}`}>
         <Text
           className='combo-box-selected-item__value'
           value={getListItemValue(item, accessor)}

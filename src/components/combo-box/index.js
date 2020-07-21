@@ -116,6 +116,7 @@ class ComboBox extends React.Component {
       defaultSelected,
       onChange,
       onFilterChange,
+      disableFiltering,
       filterFunction,
       error,
       disabled,
@@ -159,7 +160,10 @@ class ComboBox extends React.Component {
                 scrollbarProps.className || ''
               }`}
             >
-              {items.filter(this.filterFunction).map((item, index) => (
+              {(disableFiltering
+                ? items
+                : items.filter(this.filterFunction)
+              ).map((item, index) => (
                 <ItemComponent
                   key={index}
                   className={`combo-box__item ${
@@ -235,6 +239,10 @@ ComboBox.propTypes = {
    * @param {string} filter - текущее значение фильтра
    */
   filterFunction: PropTypes.func,
+  /**
+   * Флаг, отключающий фильтрацию элементов в выпадающем списке на основе фильтра в поле ввода. Используется в случае, когда содержимое списка полностью регулируется родительским компонентом, например если содержимое подгружается с задержкой с сервера.
+   */
+  disableFiltering: PropTypes.func,
   /**
    * Название выпадающего списка.
    */
