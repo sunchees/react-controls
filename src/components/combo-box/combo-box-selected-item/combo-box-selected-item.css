@@ -24,6 +24,7 @@
   width: 40px;
   background-color: #e7e7e7;
   border-left: 1px solid #d3d3d3;
+  border-radius: inherit;
   border-bottom-left-radius: unset;
   border-top-left-radius: unset;
 }
