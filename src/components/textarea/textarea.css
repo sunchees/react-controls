@@ -8,10 +8,16 @@
   border-radius: 5px;
   color: #424242;
   font-size: 16px;
-  line-height: 21px;
+  line-height: 18px;
+  background-color: #ffffff;
 }
 
 .textarea:focus {
   border: 1px solid #b0bec5;
   box-shadow: 0 0 6px 0 #b0bec5;
+}
+
+.textarea:disabled {
+  cursor: default;
+  opacity: 0.5;
 }

@@ -6,7 +6,7 @@
     scrollbarProps: {
       style: {
         minWidth: 300,
-        minHeight: 30,
+        minHeight: 40,
         maxHeight: 60
       }
     },

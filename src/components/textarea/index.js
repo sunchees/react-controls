@@ -112,23 +112,42 @@ class Textarea extends React.PureComponent {
   }
 
   adjustHeight(prevRows = this.input.rows) {
+    const pageLeftOffset =
+      window.pageXOffset ||
+      (document.documentElement || document.body.parentNode || document.body)
+        .scrollLeft;
+
+    const pageTopOffset =
+      window.pageYOffset ||
+      (document.documentElement || document.body.parentNode || document.body)
+        .scrollTop;
+
     const styles = getComputedStyle(this.input);
     const lineHeight = parseInt(styles.getPropertyValue('line-height')),
       minHeight = parseInt(styles.getPropertyValue('min-height')),
       paddingTop = parseInt(styles.getPropertyValue('padding-top')),
       paddingBottom = parseInt(styles.getPropertyValue('padding-bottom'));
 
-    const minRows = Math.ceil(((minHeight || lineHeight) - (paddingTop + paddingBottom)) / lineHeight);
+    const minRows =
+      Math.ceil(
+        ((minHeight || lineHeight) - (paddingTop + paddingBottom)) / lineHeight
+      ) || 1;
     this.input.rows = minRows;
 
     const rows = Math.ceil(
-      (this.input.scrollHeight - (minHeight || lineHeight) - (paddingTop + paddingBottom)) / lineHeight
+      (this.input.scrollHeight -
+        (minHeight || lineHeight) -
+        (paddingTop + paddingBottom)) /
+        lineHeight
     );
 
     this.input.rows = minRows + rows;
 
     if (prevRows !== this.input.rows && this.props.onHeightChange)
       this.props.onHeightChange(this.input.scrollHeight);
+
+    // Восстанавливаем положение страницы на момент изменения размера TextArea. Это необходимо, т.к. прокручиваемая TextArea при изменении размеров также прокручивает всю веб-страинцу.
+    window.scrollTo(pageLeftOffset, pageTopOffset);
   }
 
   render() {

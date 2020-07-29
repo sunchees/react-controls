@@ -154,6 +154,10 @@
 .button-with-loader__loader > span {
   clip: rect(8px, 16px, 16px, 0);
 }
+.button-with-loader__loader span::before,
+.button-with-loader__loader span::after {
+  border-width: 3px;
+}
 
 .button-with-loader__success,
 .button-with-loader__error {
@@ -342,6 +346,7 @@
   color: #424242;
   font-size: 16px;
   height: 40px;
+  background-color: #ffffff;
 }
 
 .input:focus {
@@ -359,7 +364,6 @@
 }
 
 .input:disabled {
-  background-color: transparent;
   opacity: 0.5;
 }
 .scrollbar__track {
@@ -391,6 +395,46 @@
   display: flex;
   flex-direction: column;
 }
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.combo-box-selected-item {
+  position: relative;
+  padding-right: 50px !important;
+}
+
+.combo-box-selected-item.disabled {
+  opacity: 0.5;
+}
+
+.combo-box-selected-item__value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.combo-box-selected-item__deselect-button {
+  border: unset;
+  height: 100%;
+  line-height: 100%;
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  background-color: #e7e7e7;
+  border-left: 1px solid #d3d3d3;
+  border-radius: inherit;
+  border-bottom-left-radius: unset;
+  border-top-left-radius: unset;
+}
+
+.combo-box-selected-item__deselect-button:disabled {
+  opacity: unset;
+}
+
 .combo-box {
   position: relative;
 }
@@ -422,6 +466,13 @@
 .combo-box__input:focus {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
+}
+
+.combo-box__selected-item {
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
 }
 
 .combo-box__content-wrap {
@@ -596,7 +647,8 @@
 }
 
 .ReactTable .rt-thead.-filters .input,
-.ReactTable .rt-thead.-filters .combo-box__input {
+.ReactTable .rt-thead.-filters .combo-box__input,
+.ReactTable .rt-thead.-filters .combo-box__selected-item {
   border: 1px solid #d3d3d3;
   border-radius: 3px;
 }
@@ -604,7 +656,8 @@
 .ReactTable .rt-thead.-filters .input,
 .ReactTable .rt-thead.-filters .dropdown__title,
 .ReactTable .rt-thead.-filters .dropdown__item,
-.ReactTable .rt-thead.-filters .combo-box__item {
+.ReactTable .rt-thead.-filters .combo-box__item,
+.ReactTable .rt-thead.-filters .combo-box__selected-item {
   height: 100%;
   width: 100%;
   padding: 5px 7px;
@@ -625,6 +678,12 @@
 .ReactTable .rt-thead.-filters .combo-box__scrollbar {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
+}
+
+.ReactTable .rt-thead.-filters .combo-box-selected-item__deselect-button {
+  height: 100%;
+  padding: unset;
+  width: 30px;
 }
 .modal {
   position: fixed;
@@ -683,11 +742,6 @@
   padding: 10px 20px 20px 20px;
   min-height: calc(100% - 52px);
 }
-.row {
-  display: flex;
-  flex-direction: row;
-}
-
 .multi-select {
   max-height: 200px;
 }
@@ -852,17 +906,27 @@
   border-radius: 5px;
   color: #424242;
   font-size: 16px;
-  line-height: 21px;
+  line-height: 18px;
+  background-color: #ffffff;
 }
 
 .textarea:focus {
   border: 1px solid #b0bec5;
   box-shadow: 0 0 6px 0 #b0bec5;
 }
+
+.textarea:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
 .textarea-with-scrollbar {
-  padding: 7px 10px;
+  padding-bottom: 10px;
   border: 1px solid #d3d3d3;
   border-radius: 5px;
+}
+
+.textarea-with-scrollbar__textarea:disabled {
+  opacity: unset;
 }
 
 .textarea-with-scrollbar:focus-within {
@@ -878,16 +942,22 @@
 .textarea-with-scrollbar__scrollbar.scrollbar > .scrollbar__track.vertical {
   width: 7px;
   border: none;
+  margin: 10px;
+  height: calc(100% - 20px);
 }
 
 .textarea-with-scrollbar__textarea {
   margin-right: 9px;
   width: calc(100% - 9px);
-  padding: unset;
+  padding: 10px 10px 0px 10px;
   border: unset;
 }
 
 .textarea-with-scrollbar__textarea:focus {
   box-shadow: none;
   border: unset;
+}
+
+.textarea-with-scrollbar.disabled {
+  opacity: 0.5;
 }

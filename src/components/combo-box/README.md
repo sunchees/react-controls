@@ -6,6 +6,30 @@ const items = ['[Элемент 1]', '[Элемент 2]', '[Элемент 3]',
 return <ComboBox items={items} defaultFilter={items[2]} defaultSelected={items[2]} />;
 ```
 
+Выпадающий список с функцией для отображения элементов
+
+```js
+const items = ['[Элемент 1]', '[Элемент 2]', '[Элемент 3]', '[Элемент 4]', '[Элемент 5]'];
+
+const accessor = (item) => {
+  return `${item} #${Math.random(0, 1) * 100}`
+}
+
+return <ComboBox items={items} accessor={accessor} />;
+```
+
+Выпадающий список с отображением поля ввода даже после выбора элемента списка и с отключенной фильтрацией.
+
+```js
+const items = ['[Элемент 1]', '[Элемент 2]', '[Элемент 3]', '[Элемент 4]', '[Элемент 5]'];
+
+const accessor = (item) => {
+  return `${item} #${Math.random(0, 1) * 100}`
+}
+
+return <ComboBox items={items} accessor={accessor} showSelectedItem={false} disableFiltering={true}/>;
+```
+
 Выпадающий список с кастомным компонентом элемента списка и обработчиками событий (события логируются в консоль)
 
 ```js
@@ -34,7 +58,7 @@ function ItemComponent(props) {
     className={props.className}
     onMouseDown={onMouseDown}
   >
-    <span>{props.item ? props.item[props.displayField] : null}</span>
+    <span>{props.item ? props.item[props.accessor] : null}</span>
     <br/>
     <span>{props.item ? props.item.hiddenField : null}</span>
     <br/>
@@ -44,6 +68,10 @@ function ItemComponent(props) {
 
 function onChange(item, name) {
   console.log('ComboBox.onChange', item, name);
+}
+
+function onFilterChange(filter) {
+  console.log('ComboBox.onFilterChange', filter);
 }
 
 function filterFunction(item, filter) {
@@ -66,10 +94,11 @@ return <div>
   <ComboBox
     ref={setRef}
     items={items}
-    displayField='value'
+    accessor='value'
     name='ComboBox 1'
     ItemComponent={ItemComponent}
     onChange={onChange}
+    onFilterChange={onFilterChange}
     filterFunction={filterFunction}
   />
   <button onClick={getSelected}>getSelected()</button>

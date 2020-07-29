@@ -14,7 +14,11 @@ const TextareaWithScrollbar = ({
   scrollbarProps = {},
   textareaProps = {}
 }) => (
-  <div className={`textarea-with-scrollbar ${className}`}>
+  <div
+    className={`textarea-with-scrollbar ${className} ${
+      textareaProps.disabled ? 'disabled' : ''
+    }`}
+  >
     <ContentHeightScrollbar
       {...scrollbarProps}
       className='textarea-with-scrollbar__scrollbar'

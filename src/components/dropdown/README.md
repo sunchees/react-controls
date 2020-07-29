@@ -6,6 +6,18 @@ const items = ['[Элемент 1]', '[Элемент 2]', '[Элемент 3]',
 return <Dropdown items={items} defaultSelected={items[2]} />;
 ```
 
+Выпадающий список с функцией для отображения элементов
+
+```js
+const items = ['[Элемент 1]', '[Элемент 2]', '[Элемент 3]', '[Элемент 4]', '[Элемент 5]'];
+
+const accessor = (item) => {
+  return `${item} #${Math.random(0, 1) * 100}`
+}
+
+return <Dropdown items={items} accessor={accessor} />;
+```
+
 Выпадающий список с кастомным компонентом элемента списка и обработчиками событий (события логируются в консоль)
 
 ```js
@@ -34,7 +46,7 @@ function ItemComponent(props) {
     onMouseDown={onMouseDown}
   >
     <span>Click me!</span>
-    <span>{props.item ? props.item[props.displayField] : null}</span>
+    <span>{props.item ? props.item[props.accessor] : null}</span>
   </button>
 }
 
@@ -51,7 +63,7 @@ function resetSelected() {
 }
 
 return <div>
-  <Dropdown ref={setRef} items={items} displayField='value' ItemComponent={ItemComponent} onChange={onChange} />
+  <Dropdown ref={setRef} items={items} accessor='value' ItemComponent={ItemComponent} onChange={onChange} />
   <button onClick={getSelected}>getSelected()</button>
   <button onClick={resetSelected}>resetSelected()</button>
 </div>
