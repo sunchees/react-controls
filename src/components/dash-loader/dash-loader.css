@@ -1,15 +1,17 @@
+.dash-loader {
+  position: relative;
+  display: flex;
+  height: 32px;
+  width: 32px;
+  animation: dash-loader-1 3s linear infinite;
+  margin: auto;
+}
+
 .dash-loader ::after,
 .dash-loader ::before {
   box-sizing: border-box;
 }
 
-.dash-loader {
-  position: relative;
-  display: block;
-  height: 32px;
-  width: 32px;
-  animation: dash-loader-1 3s linear infinite;
-}
 @keyframes dash-loader-1 {
   0% {
     transform: rotate(0deg);

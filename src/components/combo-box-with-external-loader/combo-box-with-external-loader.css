@@ -1,0 +1,4 @@
+.combo-box-with-external-loader > .combo-box-with-label {
+  width: 100%;
+  flex-shrink: 0;
+}

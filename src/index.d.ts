@@ -5,6 +5,7 @@ import CheckboxWithLabel from "./components/checkbox-with-label";
 import ClusterLoader from "./components/cluster-loader";
 import Column from "./components/column";
 import ComboBox from "./components/combo-box";
+import ComboBoxWithExternalLoader from "./components/combo-box-with-external-loader";
 import ComboBoxWithLabel from "./components/combo-box-with-label";
 import ContentHeightScrollbar from "./components/content-height-scrollbar";
 import DashLoader from "./components/dash-loader";
@@ -27,11 +28,13 @@ import Table from "./components/table";
 import TeardropLoader from "./components/teardrop-loader";
 import Text from "./components/text";
 import TextWithLabel from "./components/text-with-label";
+import TextWithScrollbarAndLabel from "./components/text-with-scrollbar-and-label";
 import Textarea from "./components/textarea";
 import TextareaWithLabel from "./components/textarea-with-label";
 import TextareaWithScrollbar from "./components/textarea-with-scrollbar";
 import TextareaWithScrollbarAndLabel from "./components/textarea-with-scrollbar-and-label";
 import WrapWithLabel from "./components/wrap-with-label";
+import WrapWithLoader from "./components/wrap-with-loader";
 
 export {
   Button,
@@ -41,6 +44,7 @@ export {
   ClusterLoader,
   Column,
   ComboBox,
+  ComboBoxWithExternalLoader,
   ComboBoxWithLabel,
   ContentHeightScrollbar,
   DashLoader,
@@ -63,9 +67,11 @@ export {
   TeardropLoader,
   Text,
   TextWithLabel,
+  TextWithScrollbarAndLabel,
   Textarea,
   TextareaWithLabel,
   TextareaWithScrollbar,
   TextareaWithScrollbarAndLabel,
   WrapWithLabel,
+  WrapWithLoader
 };

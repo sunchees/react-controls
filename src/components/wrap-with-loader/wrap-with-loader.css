@@ -1,0 +1,17 @@
+.wrap-with-loader {
+  align-items: center;
+}
+
+.wrap-with-loader__loader {
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
+.wrap-with-loader__loader.dash-loader {
+  width: 16px;
+  height: 16px;
+}
+
+.wrap-with-loader__loader.dash-loader > span {
+  clip: rect(8px, 16px, 16px, 0);
+}
