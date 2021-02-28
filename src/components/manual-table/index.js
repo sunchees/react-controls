@@ -4,6 +4,7 @@ import autobind from 'autobind-decorator';
 import isEqual from 'lodash/isEqual';
 import map from 'lodash/map';
 import Table from '../table';
+import './manual-table.css';
 
 /**
  * Компонент таблицы, управление которой осуществляется вручную.
@@ -37,10 +38,14 @@ class ManualTable extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (!isEqual(this.props.defaultFilter, prevProps.defaultFilter))
-      this.setState({ filter: { ...this.state.filter, ...this.props.defaultFilter } });
+      this.setState({
+        filter: { ...this.state.filter, ...this.props.defaultFilter }
+      });
 
     if (!isEqual(this.props.defaultSort, prevProps.defaultSort))
-      this.setState({ sort: { ...this.state.sort, ...this.props.defaultSort } });
+      this.setState({
+        sort: { ...this.state.sort, ...this.props.defaultSort }
+      });
 
     if (
       !isEqual(this.state.filter, prevState.filter) ||
@@ -128,6 +133,7 @@ class ManualTable extends React.Component {
 
   render() {
     const {
+      className = '',
       defaultFilter,
       defaultSort,
       getData,
@@ -140,6 +146,9 @@ class ManualTable extends React.Component {
 
     return (
       <Table
+        className={`manual-table ${className}`}
+        showPageJump={false}
+        ofText={''}
         {...props}
         manual={true}
         page={page}

@@ -1,5 +1,7 @@
 .combo-box {
   position: relative;
+  background: #ffffff;
+  border-radius: 5px;
 }
 .combo-box.error {
   border-color: #d22c75;
@@ -11,20 +13,20 @@
   width: 100%;
   height: 40px;
   text-align: left;
+  justify-content: left;
+  align-items: flex-start;
   font-size: 16px;
   padding: 10px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  
-  border: unset;
-  border-radius: unset;
+
   border-top: 1px solid #d3d3d3;
 }
 
 .combo-box__input {
   width: 100%;
-  border-radius: 5px;
+  border-radius: inherit;
 }
 .combo-box__input:focus {
   border-bottom-left-radius: 0px;
@@ -35,20 +37,22 @@
   height: 40px;
   padding: 10px;
   border: 1px solid #d3d3d3;
-  border-radius: 5px;
+  border-radius: inherit;
 }
 
 .combo-box__content-wrap {
   position: absolute;
   width: 100%;
   max-height: 140px;
+  border-radius: inherit;
+  background: inherit;
 }
 
 .combo-box__scrollbar {
   max-height: inherit;
-  background-color: #fff;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  background: inherit;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
   border: 1px solid #d3d3d3;
   border-top: unset;
   z-index: 1;
@@ -59,5 +63,14 @@
 }
 
 .combo-box__item:hover {
-  background-color: #eceff1;
+  background: #eceff1;
+}
+
+.combo-box__empty-text {
+  height: 40px;
+  text-align: left;
+  font-size: 14px;
+  padding: 10px;
+  color: #a7a7a7;
+  border-top: 1px solid #d3d3d3;
 }

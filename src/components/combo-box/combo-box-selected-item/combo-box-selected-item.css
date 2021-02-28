@@ -14,15 +14,14 @@
 }
 
 .combo-box-selected-item__deselect-button {
-  border: unset;
+  width: 40px;
   height: 100%;
   line-height: 100%;
   font-weight: bold;
   position: absolute;
   right: 0;
   top: 0;
-  width: 40px;
-  background-color: #e7e7e7;
+  background: #e7e7e7;
   border-left: 1px solid #d3d3d3;
   border-radius: inherit;
   border-bottom-left-radius: unset;

@@ -124,11 +124,15 @@ export interface ComboBoxProps extends React.HTMLProps<HTMLDivElement> {
   /**
    * Свойства, передаваемые вложенному компоненту <Input />
    */
-  inputProps?: InputProps,
+  inputProps?: InputProps;
   /**
    * Свойства, передаваемые вложенному компоненту <ContentHeightScrollbar />
    */
   scrollbarProps?: ScrollbarProps;
+  /**
+   * Текст, отображаемый при отсутствии в выпадающем списке элементов, соответствующих заданному фильтру. По умолчанию отображается текст "Ничего не найдено"
+   */
+  emptyText?: string
 }
 
 /**

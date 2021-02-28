@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import autobind from 'autobind-decorator';
 import isEqual from 'lodash/isEqual';
 import Input from '../input';
+import Text from '../text';
 import ContentHeightScrollbar from '../content-height-scrollbar';
 import { getListItemValue } from '../../utils';
 import { ComboBoxSelectedItem } from './combo-box-selected-item';
@@ -11,7 +12,7 @@ import './combo-box.css';
 
 /**
  * Компонент выпадающего списка с фильтром.
- * Представляет собой обертку над HTML-элементом div с вложенным компонентом [ContentHeightScrollbar](#contentheightscrollbar) и компонентом [Input](#input), используемым в качестве поля ввода для фильтрации элементов списка..
+ * Представляет собой обертку над HTML-элементом div с вложенным компонентом [ContentHeightScrollbar](#contentheightscrollbar) и компонентом [Input](#input), используемым в качестве поля ввода для фильтрации элементов списка.
  */
 @autobind
 class ComboBox extends React.Component {
@@ -20,10 +21,7 @@ class ComboBox extends React.Component {
 
     this.state = {
       open: false,
-      filter:
-        props.defaultFilter ||
-        getListItemValue(props.defaultSelected, props.accessor) ||
-        '',
+      filter: props.defaultFilter || '',
       selected: props.defaultSelected || null
     };
 
@@ -37,10 +35,7 @@ class ComboBox extends React.Component {
     )
       this.setState({
         selected: this.props.defaultSelected,
-        filter:
-          this.props.defaultFilter ||
-          getListItemValue(this.props.defaultSelected, this.props.accessor) ||
-          this.state.filter
+        filter: this.props.defaultFilter || ''
       });
   }
 
@@ -55,7 +50,6 @@ class ComboBox extends React.Component {
   onItemClick(item) {
     this.setState({
       selected: item,
-      filter: getListItemValue(item, this.props.accessor),
       open: false
     });
     if (this.props.onChange) this.props.onChange(item, this.props.name);
@@ -83,7 +77,7 @@ class ComboBox extends React.Component {
    * @public
    */
   resetSelected() {
-    this.setState({ selected: null });
+    this.setState({ selected: null, filter: '' });
     if (this.props.onChange) this.props.onChange(null, this.props.name);
   }
 
@@ -123,8 +117,15 @@ class ComboBox extends React.Component {
       inputProps = {},
       scrollbarProps = {},
       name,
+      emptyText,
       ...props
     } = this.props;
+
+    const filtered = items
+      ? disableFiltering
+        ? items
+        : items.filter(this.filterFunction)
+      : [];
 
     return (
       <div
@@ -152,7 +153,7 @@ class ComboBox extends React.Component {
             value={this.state.filter}
           />
         )}
-        {this.state.open && items ? (
+        {this.state.open ? (
           <div className='combo-box__content-wrap'>
             <ContentHeightScrollbar
               {...scrollbarProps}
@@ -160,10 +161,7 @@ class ComboBox extends React.Component {
                 scrollbarProps.className || ''
               }`}
             >
-              {(disableFiltering
-                ? items
-                : items.filter(this.filterFunction)
-              ).map((item, index) => (
+              {filtered.map((item, index) => (
                 <ItemComponent
                   key={index}
                   className={`combo-box__item ${
@@ -175,6 +173,9 @@ class ComboBox extends React.Component {
                   accessor={accessor}
                 />
               ))}
+              {!filtered.length && emptyText ? (
+                <Text className='combo-box__empty-text' value={emptyText} />
+              ) : null}
             </ContentHeightScrollbar>
           </div>
         ) : null}
@@ -186,7 +187,8 @@ class ComboBox extends React.Component {
 export default ComboBox;
 
 ComboBox.defaultProps = {
-  showSelectedItem: true
+  showSelectedItem: true,
+  emptyText: 'Ничего не найдено'
 };
 
 ComboBox.propTypes = {
@@ -242,7 +244,7 @@ ComboBox.propTypes = {
   /**
    * Флаг, отключающий фильтрацию элементов в выпадающем списке на основе фильтра в поле ввода. Используется в случае, когда содержимое списка полностью регулируется родительским компонентом, например если содержимое подгружается с задержкой с сервера.
    */
-  disableFiltering: PropTypes.func,
+  disableFiltering: PropTypes.bool,
   /**
    * Название выпадающего списка.
    */
@@ -262,5 +264,9 @@ ComboBox.propTypes = {
   /**
    * Свойства, передаваемые вложенному компоненту [ContentHeightScrollbar](/#contentheightscrollbar)
    */
-  scrollbarProps: PropTypes.shape({})
+  scrollbarProps: PropTypes.shape({}),
+  /**
+   * Текст, отображаемый при отсутствии в выпадающем списке элементов, соответствующих заданному фильтру. По умолчанию отображается текст "Ничего не найдено"
+   */
+  emptyText: PropTypes.string
 };
