@@ -13,3 +13,9 @@ return <Button onClick={onClick}>Кнопка</Button>
 ```js
 <Button disabled={true}>Кнопка</Button>
 ```
+
+Кнопка со стилями по умолчанию
+
+```js
+<Button stylized={true}>Кнопка</Button>
+```

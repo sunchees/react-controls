@@ -14,7 +14,7 @@ const TextareaWithLabel = ({
   mandatory = false,
   textareaProps = {}
 }) => (
-  <WrapWithLabel className={className} label={label} mandatory={mandatory}>
+  <WrapWithLabel className={`textarea-with-label ${className}`} label={label} mandatory={mandatory}>
     <Textarea {...textareaProps} />
   </WrapWithLabel>
 );
@@ -35,5 +35,5 @@ TextareaWithLabel.propTypes = {
   /**
    * Свойства, передаваемые вложенному компоненту [Textarea](#textarea)
    */
-  textareaProps: PropTypes.shape()
+  textareaProps: PropTypes.shape({})
 };

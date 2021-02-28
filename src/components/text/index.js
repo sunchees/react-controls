@@ -29,7 +29,7 @@ export default Text;
 
 Text.propTypes = {
   /** Текст, отображаемый компонентом */
-  value: PropTypes.string,
+  value: PropTypes.any,
   /**
    * Флаг, определяющий нужно ли отображать 'props.value' с большой буквы.
    * <br>

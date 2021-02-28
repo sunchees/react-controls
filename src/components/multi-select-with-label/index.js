@@ -13,7 +13,7 @@ const MultiSelectWithLabel = ({
   mandatory = false,
   multiSelectProps = {}
 }) => (
-  <WrapWithLabel className={className} label={label} mandatory={mandatory}>
+  <WrapWithLabel className={`multi-select-with-label ${className}`} label={label} mandatory={mandatory}>
     <MultiSelect {...multiSelectProps} />
   </WrapWithLabel>
 );
@@ -34,5 +34,5 @@ MultiSelectWithLabel.propTypes = {
   /**
    * Свойства компонента [MultiSelect](/#multiSelect).
    */
-  multiSelectProps: PropTypes.shape()
+  multiSelectProps: PropTypes.shape({})
 };

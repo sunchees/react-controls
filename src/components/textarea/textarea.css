@@ -9,7 +9,7 @@
   color: #424242;
   font-size: 16px;
   line-height: 18px;
-  background-color: #ffffff;
+  background: #ffffff;
 }
 
 .textarea:focus {

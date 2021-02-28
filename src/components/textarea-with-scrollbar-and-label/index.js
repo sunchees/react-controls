@@ -14,7 +14,7 @@ const TextareaWithScrollbarAndLabel = ({
   mandatory = false,
   textareaWithScrollbarProps = {}
 }) => (
-  <WrapWithLabel className={className} label={label} mandatory={mandatory}>
+  <WrapWithLabel className={`textarea-with-scrollbar-and-label ${className}`} label={label} mandatory={mandatory}>
     <TextareaWithScrollbar {...textareaWithScrollbarProps} />
   </WrapWithLabel>
 );
@@ -35,5 +35,5 @@ TextareaWithScrollbarAndLabel.propTypes = {
   /**
    * Свойства, передаваемые вложенному компоненту [TextareaWithScrollbar](#textareaWithScrollbar)
    */
-  textareaWithScrollbarProps: PropTypes.shape()
+  textareaWithScrollbarProps: PropTypes.shape({})
 };

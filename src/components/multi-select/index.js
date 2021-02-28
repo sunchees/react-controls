@@ -197,9 +197,9 @@ MultiSelect.propTypes = {
   /**
    * Свойства, передаваемые вложенному компоненту [ComboBox](#comboBox)
    */
-  comboBoxProps: PropTypes.shape(),
+  comboBoxProps: PropTypes.shape({}),
   /**
    * Свойства, передаваемые вложенному компоненту [ContentHeightScrollbar](#contentHeightScrollbar)
    */
-  scrollbarProps: PropTypes.shape()
+  scrollbarProps: PropTypes.shape({})
 };

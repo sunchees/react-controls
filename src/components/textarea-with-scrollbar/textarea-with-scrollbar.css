@@ -2,6 +2,7 @@
   padding-bottom: 10px;
   border: 1px solid #d3d3d3;
   border-radius: 5px;
+  background: #ffffff;
 }
 
 .textarea-with-scrollbar__textarea:disabled {
@@ -13,14 +14,7 @@
   box-shadow: 0 0 6px 0 #b0bec5;
 }
 
-.textarea-with-scrollbar__scrollbar.scrollbar > .scrollbar__track.horizontal {
-  height: 7px;
-  border: none;
-}
-
 .textarea-with-scrollbar__scrollbar.scrollbar > .scrollbar__track.vertical {
-  width: 7px;
-  border: none;
   margin: 10px;
   height: calc(100% - 20px);
 }

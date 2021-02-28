@@ -41,9 +41,9 @@ TextareaWithScrollbar.propTypes = {
   /**
    * Свойства, передаваемые вложенному компоненту [ContentHeightScrollbar](#contentHeightScrollbar)
    */
-  scrollbarProps: PropTypes.shape(),
+  scrollbarProps: PropTypes.shape({}),
   /**
    * Свойства, передаваемые вложенному компоненту [Textarea](#textarea)
    */
-  textareaProps: PropTypes.shape()
+  textareaProps: PropTypes.shape({})
 };

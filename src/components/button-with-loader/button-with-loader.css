@@ -17,7 +17,6 @@
 .button-with-loader__loader {
   width: 16px;
   height: 16px;
-  margin: auto;
 }
 
 .button-with-loader__loader > span {
