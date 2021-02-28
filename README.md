@@ -7,7 +7,7 @@
   ```json
     {
       "devDependencies": {
-        "react-controls": "git+https://git@github.com:sunchees/react-controls.git#1.1.39",
+        "react-controls": "git+https://git@github.com:sunchees/react-controls.git#1.1.40",
       }
     }
   ```
@@ -58,8 +58,8 @@
   ```
 8. Создать в GIT-tag с новой версией:
   ```
-    git tag 1.1.39
-    git push origin 1.1.39
+    git tag 1.1.40
+    git push origin 1.1.40
   ```
 
 ## Работа с документацией (style-guide)

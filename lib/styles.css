@@ -8,14 +8,22 @@
   outline: none;
 }
 .button {
+  display: flex;
+  flex-direction: column;
   background: none;
-  border-radius: 5px;
-  border: 1px solid #d3d3d3;
   cursor: pointer;
   font-size: 16px;
   text-align: center;
+  align-items: center;
+  justify-content: center;
   color: #424242;
   outline: none;
+}
+
+.button.stylized {
+  background: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #d3d3d3;
   padding: 10px;
   height: 40px;
 }
@@ -25,18 +33,20 @@
   opacity: 0.5;
 }
 
+.dash-loader {
+  position: relative;
+  display: flex;
+  height: 32px;
+  width: 32px;
+  animation: dash-loader-1 3s linear infinite;
+  margin: auto;
+}
+
 .dash-loader ::after,
 .dash-loader ::before {
   box-sizing: border-box;
 }
 
-.dash-loader {
-  position: relative;
-  display: block;
-  height: 32px;
-  width: 32px;
-  animation: dash-loader-1 3s linear infinite;
-}
 @keyframes dash-loader-1 {
   0% {
     transform: rotate(0deg);
@@ -128,6 +138,7 @@
 
 .text.multiline { 
   white-space: pre-wrap;
+  word-break: break-word;
 }
 .button-with-loader {
   width: fit-content;
@@ -148,7 +159,6 @@
 .button-with-loader__loader {
   width: 16px;
   height: 16px;
-  margin: auto;
 }
 
 .button-with-loader__loader > span {
@@ -176,7 +186,7 @@
   flex-shrink: 0;
   border-radius: 2px;
   font-size: 14px;
-  padding: unset;
+  background: #ffffff;
 }
 
 .checkbox.checked {
@@ -205,9 +215,11 @@
 }
 .cluster-loader {
   position: relative;
+  display: flex;
   height: 32px;
   width: 32px;
   animation: cluster-loader-1 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  margin: auto;
 }
 @keyframes cluster-loader-1 {
   0% {
@@ -346,7 +358,7 @@
   color: #424242;
   font-size: 16px;
   height: 40px;
-  background-color: #ffffff;
+  background: #ffffff;
 }
 
 .input:focus {
@@ -386,6 +398,10 @@
   right: 0px;
 }
 
+.scrollbar__track.hidden {
+  display: none;
+}
+
 .scrollbar__thumb {
   border-radius: inherit;
   background: #bdcad0;
@@ -416,15 +432,14 @@
 }
 
 .combo-box-selected-item__deselect-button {
-  border: unset;
+  width: 40px;
   height: 100%;
   line-height: 100%;
   font-weight: bold;
   position: absolute;
   right: 0;
   top: 0;
-  width: 40px;
-  background-color: #e7e7e7;
+  background: #e7e7e7;
   border-left: 1px solid #d3d3d3;
   border-radius: inherit;
   border-bottom-left-radius: unset;
@@ -437,6 +452,8 @@
 
 .combo-box {
   position: relative;
+  background: #ffffff;
+  border-radius: 5px;
 }
 .combo-box.error {
   border-color: #d22c75;
@@ -448,20 +465,20 @@
   width: 100%;
   height: 40px;
   text-align: left;
+  justify-content: left;
+  align-items: flex-start;
   font-size: 16px;
   padding: 10px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  
-  border: unset;
-  border-radius: unset;
+
   border-top: 1px solid #d3d3d3;
 }
 
 .combo-box__input {
   width: 100%;
-  border-radius: 5px;
+  border-radius: inherit;
 }
 .combo-box__input:focus {
   border-bottom-left-radius: 0px;
@@ -472,20 +489,22 @@
   height: 40px;
   padding: 10px;
   border: 1px solid #d3d3d3;
-  border-radius: 5px;
+  border-radius: inherit;
 }
 
 .combo-box__content-wrap {
   position: absolute;
   width: 100%;
   max-height: 140px;
+  border-radius: inherit;
+  background: inherit;
 }
 
 .combo-box__scrollbar {
   max-height: inherit;
-  background-color: #fff;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  background: inherit;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
   border: 1px solid #d3d3d3;
   border-top: unset;
   z-index: 1;
@@ -496,7 +515,34 @@
 }
 
 .combo-box__item:hover {
-  background-color: #eceff1;
+  background: #eceff1;
+}
+
+.combo-box__empty-text {
+  height: 40px;
+  text-align: left;
+  font-size: 14px;
+  padding: 10px;
+  color: #a7a7a7;
+  border-top: 1px solid #d3d3d3;
+}
+
+.wrap-with-loader {
+  align-items: center;
+}
+
+.wrap-with-loader__loader {
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
+.wrap-with-loader__loader.dash-loader {
+  width: 16px;
+  height: 16px;
+}
+
+.wrap-with-loader__loader.dash-loader > span {
+  clip: rect(8px, 16px, 16px, 0);
 }
 
 .wrap-with-label__label {
@@ -515,8 +561,14 @@
   line-height: 27px;
 }
 
+.combo-box-with-external-loader > .combo-box-with-label {
+  width: 100%;
+  flex-shrink: 0;
+}
 .dropdown {
   position: relative;
+  background: #ffffff;
+  border-radius: 5px;
 }
 .dropdown.error {
   border-color: #d22c75;
@@ -529,6 +581,8 @@
   width: 100%;
   height: 40px;
   text-align: left;
+  justify-content: left;
+  align-items: flex-start;
   font-size: 16px;
   padding: 10px;
   overflow: hidden;
@@ -537,13 +591,13 @@
 }
 
 .dropdown__title {
-  border-radius: 5px;
+  background: inherit;
+  border-radius: inherit;
   padding-right: 30px;
+  border: 1px solid #d3d3d3;
 }
 
 .dropdown__item {
-  border: unset;
-  border-radius: unset;
   border-top: 1px solid #d3d3d3;
 }
 
@@ -553,7 +607,7 @@
 }
 
 .dropdown__title:disabled {
-  background-color: unset;
+  background: unset;
   opacity: 0.5;
 }
 
@@ -578,13 +632,15 @@
   position: absolute;
   width: 100%;
   max-height: 140px;
+  border-radius: inherit;
+  background: inherit;
 }
 
 .dropdown__scrollbar {
   max-height: inherit;
-  background-color: #fff;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  background: inherit;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
   border: 1px solid #d3d3d3;
   border-top: unset;
   z-index: 1;
@@ -595,7 +651,7 @@
 }
 
 .dropdown__item:hover {
-  background-color: #eceff1;
+  background: #eceff1;
 }
 
 .external-link {
@@ -637,7 +693,7 @@
 }
 
 .ReactTable.-highlight .rt-tbody .rt-tr:hover {
-  background-color: rgba(0, 0, 0, 0.1) !important;
+  background: rgba(0, 0, 0, 0.1) !important;
   cursor: pointer;
 }
 
@@ -685,6 +741,13 @@
   padding: unset;
   width: 30px;
 }
+
+.ReactTable .rt-tbody .rt-td {
+  line-height: 18px;
+}
+.manual-table .-pageInfo > .-totalPages {
+  display: none;
+}
 .modal {
   position: fixed;
   top: 0;
@@ -695,14 +758,13 @@
   justify-content: center;
   width: 100vw;
   height: 100%;
-  background-color: rgba(88, 106, 141, 0.9);
+  background: rgba(88, 106, 141, 0.9);
 }
 
 .modal__wrap {
   width: fit-content;
   height: fit-content;
-  min-width: 30%;
-  background-color: #fff;
+  background: #ffffff;
   border-radius: 4px;
   position: relative;
 }
@@ -792,17 +854,23 @@
 }
 
 .radio {
+  position: relative;
   width: 20px;
   height: 20px;
   border: 1px solid #d3d3d3;
   border-radius: 100%;
   flex-shrink: 0;
-  padding: 4px;
+  background: #ffffff;
 }
 
-.radio.selected {
-  background-color: #424242;
-  background-clip: content-box;
+.radio.selected::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #424242;
+  background-clip: padding-box;
+  border-radius: inherit;
 }
 
 .radio-with-label {
@@ -837,8 +905,10 @@
 
 .teardrop-loader {
   position: relative;
+  display: flex;
   height: 32px;
   width: 32px;
+  margin: auto;
 }
 .teardrop-loader span {
   display: block;
@@ -896,6 +966,10 @@
   line-height: 21px;
 }
 
+.text-with-scrollbar-and-label__text {
+  line-height: 21px;
+  padding-right: 9px;
+}
 .textarea {
   outline: none;
   cursor: text;
@@ -907,7 +981,7 @@
   color: #424242;
   font-size: 16px;
   line-height: 18px;
-  background-color: #ffffff;
+  background: #ffffff;
 }
 
 .textarea:focus {
@@ -923,6 +997,7 @@
   padding-bottom: 10px;
   border: 1px solid #d3d3d3;
   border-radius: 5px;
+  background: #ffffff;
 }
 
 .textarea-with-scrollbar__textarea:disabled {
@@ -934,14 +1009,7 @@
   box-shadow: 0 0 6px 0 #b0bec5;
 }
 
-.textarea-with-scrollbar__scrollbar.scrollbar > .scrollbar__track.horizontal {
-  height: 7px;
-  border: none;
-}
-
 .textarea-with-scrollbar__scrollbar.scrollbar > .scrollbar__track.vertical {
-  width: 7px;
-  border: none;
   margin: 10px;
   height: calc(100% - 20px);
 }
