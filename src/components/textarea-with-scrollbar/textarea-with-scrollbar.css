@@ -1,7 +1,12 @@
 .textarea-with-scrollbar {
-  padding: 7px 10px;
+  padding-bottom: 10px;
   border: 1px solid #d3d3d3;
   border-radius: 5px;
+  background: #ffffff;
+}
+
+.textarea-with-scrollbar__textarea:disabled {
+  opacity: unset;
 }
 
 .textarea-with-scrollbar:focus-within {
@@ -9,24 +14,23 @@
   box-shadow: 0 0 6px 0 #b0bec5;
 }
 
-.textarea-with-scrollbar__scrollbar.scrollbar > .scrollbar__track.horizontal {
-  height: 7px;
-  border: none;
-}
-
 .textarea-with-scrollbar__scrollbar.scrollbar > .scrollbar__track.vertical {
-  width: 7px;
-  border: none;
+  margin: 10px;
+  height: calc(100% - 20px);
 }
 
 .textarea-with-scrollbar__textarea {
   margin-right: 9px;
   width: calc(100% - 9px);
-  padding: unset;
+  padding: 10px 10px 0px 10px;
   border: unset;
 }
 
 .textarea-with-scrollbar__textarea:focus {
   box-shadow: none;
   border: unset;
+}
+
+.textarea-with-scrollbar.disabled {
+  opacity: 0.5;
 }

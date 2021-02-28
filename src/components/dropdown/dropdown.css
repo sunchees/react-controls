@@ -1,5 +1,7 @@
 .dropdown {
   position: relative;
+  background: #ffffff;
+  border-radius: 5px;
 }
 .dropdown.error {
   border-color: #d22c75;
@@ -12,6 +14,8 @@
   width: 100%;
   height: 40px;
   text-align: left;
+  justify-content: left;
+  align-items: flex-start;
   font-size: 16px;
   padding: 10px;
   overflow: hidden;
@@ -20,13 +24,13 @@
 }
 
 .dropdown__title {
-  border-radius: 5px;
+  background: inherit;
+  border-radius: inherit;
   padding-right: 30px;
+  border: 1px solid #d3d3d3;
 }
 
 .dropdown__item {
-  border: unset;
-  border-radius: unset;
   border-top: 1px solid #d3d3d3;
 }
 
@@ -36,7 +40,7 @@
 }
 
 .dropdown__title:disabled {
-  background-color: unset;
+  background: unset;
   opacity: 0.5;
 }
 
@@ -61,13 +65,15 @@
   position: absolute;
   width: 100%;
   max-height: 140px;
+  border-radius: inherit;
+  background: inherit;
 }
 
 .dropdown__scrollbar {
   max-height: inherit;
-  background-color: #fff;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  background: inherit;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
   border: 1px solid #d3d3d3;
   border-top: unset;
   z-index: 1;
@@ -78,5 +84,5 @@
 }
 
 .dropdown__item:hover {
-  background-color: #eceff1;
+  background: #eceff1;
 }

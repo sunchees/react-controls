@@ -16,10 +16,10 @@ const TextWithLabel = ({
   textProps = {}
 }) =>
   textProps.value || !hideIfEmpty ? (
-    <WrapWithLabel className={className} label={label} mandatory={mandatory}>
+    <WrapWithLabel className={`text-with-label ${className}`} label={label} mandatory={mandatory}>
       <Text
         {...textProps}
-        className={`text-with-label__text ${textProps.className || ''}`}
+        className='text-with-label__text'
       />
     </WrapWithLabel>
   ) : null;
@@ -46,5 +46,5 @@ TextWithLabel.propTypes = {
   /**
    * Свойства компонента [Text](/#text).
    */
-  textProps: PropTypes.shape()
+  textProps: PropTypes.shape({})
 };

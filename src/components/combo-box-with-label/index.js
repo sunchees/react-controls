@@ -13,7 +13,7 @@ const ComboBoxWithLabel = ({
   mandatory = false,
   comboBoxProps = {}
 }) => (
-  <WrapWithLabel className={className} label={label} mandatory={mandatory}>
+  <WrapWithLabel className={`combo-box-with-label ${className}`} label={label} mandatory={mandatory}>
     <ComboBox {...comboBoxProps} />
   </WrapWithLabel>
 );
@@ -34,5 +34,5 @@ ComboBoxWithLabel.propTypes = {
   /**
    * Свойства компонента [ComboBox](/#comboBox).
    */
-  comboBoxProps: PropTypes.shape()
+  comboBoxProps: PropTypes.shape({})
 };

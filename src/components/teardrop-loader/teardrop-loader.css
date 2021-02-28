@@ -1,7 +1,9 @@
 .teardrop-loader {
   position: relative;
+  display: flex;
   height: 32px;
   width: 32px;
+  margin: auto;
 }
 .teardrop-loader span {
   display: block;

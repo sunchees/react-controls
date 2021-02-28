@@ -13,7 +13,7 @@ const InputWithLabel = ({
   mandatory = false,
   inputProps = {}
 }) => (
-  <WrapWithLabel className={className} label={label} mandatory={mandatory}>
+  <WrapWithLabel className={`input-with-label ${className}`} label={label} mandatory={mandatory}>
     <Input {...inputProps} />
   </WrapWithLabel>
 );
@@ -34,5 +34,5 @@ InputWithLabel.propTypes = {
   /**
    * Свойства компонента [Input](/#input).
    */
-  inputProps: PropTypes.shape()
+  inputProps: PropTypes.shape({})
 };

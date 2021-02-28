@@ -17,11 +17,14 @@
 .button-with-loader__loader {
   width: 16px;
   height: 16px;
-  margin: auto;
 }
 
 .button-with-loader__loader > span {
   clip: rect(8px, 16px, 16px, 0);
+}
+.button-with-loader__loader span::before,
+.button-with-loader__loader span::after {
+  border-width: 3px;
 }
 
 .button-with-loader__success,

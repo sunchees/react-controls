@@ -13,7 +13,7 @@ const DropdownWithLabel = ({
   mandatory = false,
   dropdownProps = {}
 }) => (
-  <WrapWithLabel className={className} label={label} mandatory={mandatory}>
+  <WrapWithLabel className={`dropdown-with-label ${className}`} label={label} mandatory={mandatory}>
     <Dropdown {...dropdownProps} />
   </WrapWithLabel>
 );
@@ -34,5 +34,5 @@ DropdownWithLabel.propTypes = {
   /**
    * Свойства компонента [Dropdown](/#dropdown).
    */
-  dropdownProps: PropTypes.shape()
+  dropdownProps: PropTypes.shape({})
 };

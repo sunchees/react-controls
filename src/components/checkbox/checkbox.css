@@ -5,7 +5,7 @@
   flex-shrink: 0;
   border-radius: 2px;
   font-size: 14px;
-  padding: unset;
+  background: #ffffff;
 }
 
 .checkbox.checked {

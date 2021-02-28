@@ -6,6 +6,7 @@
   color: #424242;
   font-size: 16px;
   height: 40px;
+  background: #ffffff;
 }
 
 .input:focus {
@@ -23,6 +24,5 @@
 }
 
 .input:disabled {
-  background-color: transparent;
   opacity: 0.5;
 }

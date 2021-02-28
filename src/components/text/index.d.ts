@@ -2,7 +2,7 @@ import React from 'react';
 
 export interface TextProps extends React.HTMLProps<HTMLSpanElement> {
   /** Текст, отображаемый компонентом */
-  value: string;
+  value: any;
   /**
    * Флаг, определяющий нужно ли отображать 'props.value' с большой буквы.
    * Если флаг выставлен в значение true - к тексту применяется стиль 'capitalized'

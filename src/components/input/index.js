@@ -36,6 +36,14 @@ class Input extends React.Component {
       this.setState({ key: Math.random() });
     }
 
+    if (
+      this.props.defaultValue !== nextProps.defaultValue &&
+      nextProps.defaultValue !== this.value
+    ) {
+      this.value = nextProps.defaultValue;
+      this.setState({ key: Math.random() });
+    }
+
     return (
       this.props.secure !== nextProps.secure ||
       this.props.disabled !== nextProps.disabled ||

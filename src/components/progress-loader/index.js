@@ -50,5 +50,5 @@ ProgressLoader.propTypes = {
    * <br>
    * [Документация CircularProgressbar](https://www.npmjs.com/package/react-circular-progressbar)
    */
-  circularProgressbarProps: PropTypes.shape()
+  circularProgressbarProps: PropTypes.shape({})
 };

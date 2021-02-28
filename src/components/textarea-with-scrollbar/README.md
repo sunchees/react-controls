@@ -2,7 +2,7 @@
 <TextareaWithScrollbar
   scrollbarProps={{
     style: {
-      minHeight: 30,
+      minHeight: 40,
       maxHeight: 60
     }
   }}

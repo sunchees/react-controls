@@ -18,6 +18,10 @@
   right: 0px;
 }
 
+.scrollbar__track.hidden {
+  display: none;
+}
+
 .scrollbar__thumb {
   border-radius: inherit;
   background: #bdcad0;

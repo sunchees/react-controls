@@ -1,5 +1,4 @@
 import React from 'react';
-import { LinkProps } from 'react-router-dom';
 
 export interface WrapWithLabelProps extends React.HTMLProps<HTMLDivElement> {
   /**
