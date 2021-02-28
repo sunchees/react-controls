@@ -1,13 +1,19 @@
 .radio {
+  position: relative;
   width: 20px;
   height: 20px;
   border: 1px solid #d3d3d3;
   border-radius: 100%;
   flex-shrink: 0;
-  padding: 4px;
+  background: #ffffff;
 }
 
-.radio.selected {
-  background-color: #424242;
-  background-clip: content-box;
+.radio.selected::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #424242;
+  background-clip: padding-box;
+  border-radius: inherit;
 }
