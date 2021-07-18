@@ -1,21 +1,21 @@
-Кнопка с обработчиком клика (событие логируется в консоль)
+Button with 'onClick' handler (event is logged to console)
 
 ```js
 function onClick() {
   console.log('Input.onClick');
 }
 
-return <Button onClick={onClick}>Кнопка</Button>
+return <Button onClick={onClick}>Button</Button>
 ```
 
-Отключенная кнопка
+Disabled button
 
 ```js
-<Button disabled={true}>Кнопка</Button>
+<Button disabled={true}>Button</Button>
 ```
 
-Кнопка со стилями по умолчанию
+Button with default styles
 
 ```js
-<Button stylized={true}>Кнопка</Button>
+<Button stylized={true}>Button</Button>
 ```

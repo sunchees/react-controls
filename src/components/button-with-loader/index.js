@@ -6,7 +6,7 @@ import Text from '../text';
 import './button-with-loader.css';
 
 /**
- * Базовый компонент кнопки с лоадером и результатом выполнения операции.
+ * Basic button component combined with loader and operation result display.
  */
 const ButtonWithLoader = ({
   className = '',
@@ -42,23 +42,23 @@ export default ButtonWithLoader;
 
 ButtonWithLoader.propTypes = {
   /**
-   * Класс компонента для отрисовки кнопки.
+   * React component to render as button
    */
   ButtonComponent: PropTypes.elementType,
   /**
-   * Класс компонента для отрисовки лоадера.
+   * React component to render as loader
    */
   LoaderComponent: PropTypes.elementType,
   /**
-   * Регулирует отображение лоадера или контента кнопки
+   * Displays loader in place of button content
    */
   loading: PropTypes.bool,
   /**
-   * Текст успешного выполнения операции
+   * Successfull operation notification text
    */
   success: PropTypes.string,
   /**
-   * Текст ошибки выполнения операции
+   * Error notification text
    */
   error: PropTypes.string
 };

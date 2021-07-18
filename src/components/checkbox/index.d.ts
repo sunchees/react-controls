@@ -3,32 +3,28 @@ import { ButtonProps } from '../button';
 
 export interface CheckboxProps extends ButtonProps {
   /** 
-   * Флаг, задающий активность чекбокса.
-   * В случае, если чекбокс активен, к нему применяется стиль 'checked'.
+   * Adds checkmark to checkbox.
+   * Also applies 'checked' selector to the component.
    */
   checked?: boolean;
   /** 
-   * Функция, вызываемая при нажатии на чекбокс.
-   * @param item - связанный с чекбоксом объект, переданный в качестве свойства "item".
-   * @param name - название чекбокса, на основе заданного компоненту свойства "name".
+   * Function that will be called when checkbox is clicked.
+   * @param item - Item associated with this checkbox. Set by the 'item' component prop.
+   * @param name - Checkbox name. Set by the 'name' component prop.
    */
   onClick?: (item?: any, name?: string) => void;
   /**
-   * Параметр, передаваемый при вызове функции props.onClick
+   * Item associated with this checkbox
    */
   item?: any;
   /**
-   * Название чекбокса.
+   * Checkbox name
    */
   name?: string;
-  /**
-   * Ярлык, отображаемый рядом с чекбоксом.
-   */
-  label?: string;
 }
 
 /**
- * Базовый компонент чекбокса.
+ * Basic checkbox component
  */
 declare class Checkbox extends React.Component<CheckboxProps> {}
 

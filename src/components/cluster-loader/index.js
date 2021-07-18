@@ -2,7 +2,7 @@ import React from 'react';
 import './cluster-loader.css';
 
 /**
- * Компонент лоадера с анимацией "Cluster".
+ * Loader component with "Cluster" animation.
  * @see https://codepen.io/rbv912/pen/dYbqLQ (loader-5)
  */
 const ClusterLoader = ({ className = '', ...props }) => (

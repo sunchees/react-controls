@@ -1,18 +1,18 @@
-Обработчик события клика (событие логируется в консоль)
+'onClick' event handler (event is logged into console)
 ```js
 function onClick(item, name) {
   console.log('CheckboxWithLabel.onClick', item, name);
 }
 
-return <CheckboxWithLabel item='Значение' name='Чекбокс 1' onClick={onClick} label='Чекбокс 1'/>
+return <CheckboxWithLabel item='Item' name='Checkbox' onClick={onClick} label='Checkbox'/>
 ```
 
-Отмеченный чекбокс
+Checked checkbox
 ```js
-<CheckboxWithLabel checked={true} label='Чекбокс 1'/>
+<CheckboxWithLabel checked={true} label='Checkbox'/>
 ```
 
-Отключенный чекбокс
+Disabled checkbox
 ```js
-<CheckboxWithLabel checked={true} disabled={true} label='Чекбокс 1'/>
+<CheckboxWithLabel checked={true} disabled={true} label='Checkbox'/>
 ```

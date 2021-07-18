@@ -5,7 +5,7 @@ import Button from '../button';
 import './checkbox.css';
 
 /**
- * Базовый компонент чекбокса.
+ * Basic checkbox component
  */
 export default class Checkbox extends React.PureComponent {
   @autobind
@@ -30,23 +30,23 @@ export default class Checkbox extends React.PureComponent {
 
 Checkbox.propTypes = {
   /**
-   * Флаг, задающий активность чекбокса.
-   * В случае, если чекбокс активен, к нему применяется стиль 'checked'.
+   * Adds checkmark to checkbox.
+   * Also applies 'checked' selector to the component.
    */
   checked: PropTypes.bool,
   /**
-   * Функция, вызываемая при нажатии на чекбокс.
-   * @param {any=} item - связанный с чекбоксом объект, переданный в качестве свойства "item".
+   * Function that will be called when checkbox is clicked.
+   * @param {any=} item - Item associated with this checkbox. Set by the 'item' component prop.
    * <br>
-   * @param {string=} name - название чекбокса, на основе заданного компоненту свойства "name".
+   * @param {string=} name - Checkbox name. Set by the 'name' component prop.
    */
   onClick: PropTypes.func,
   /**
-   * Параметр, передаваемый при вызове функции props.onClick
+   * Item associated with this checkbox
    */
   item: PropTypes.any,
   /**
-   * Название чекбокса.
+   * Checkbox name
    */
   name: PropTypes.string
 };

@@ -1,7 +1,7 @@
 ```js
 <Column>
-  <span>[Элемент 1]</span>
-  <span>[Элемент 2]</span>
-  <span>[Элемент 3]</span>
+  <span>[Item 1]</span>
+  <span>[Item 2]</span>
+  <span>[Item 3]</span>
 </Column>
 ```

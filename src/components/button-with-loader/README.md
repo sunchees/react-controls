@@ -1,10 +1,10 @@
-Кнопка по умолчанию в состоянии отображения лоадера
+Default button with loader displayed
 
 ```js
 <ButtonWithLoader loading={true} />
 ```
 
-Кастомная кнопка с текстом об успешном выполнении операции
+Custom button with successfull operation text displayed
 
 ```js
 function ButtonComponent(props) {
@@ -14,15 +14,15 @@ function ButtonComponent(props) {
   />
 }
 
-return <ButtonWithLoader ButtonComponent={ButtonComponent} success='Успех!'>Кнопка</ButtonWithLoader>
+return <ButtonWithLoader ButtonComponent={ButtonComponent} success='Success!'>Button</ButtonWithLoader>
 ```
 
-Кнопка с кастомным лоадером и текстом об ошибке при выполнении операции
+Button with custom loader and error text displayed
 
 ```js
 function LoaderComponent(props) {
-  return <div style={{width: 100}}>Загрузка...</div>
+  return <div style={{width: 100}}>Loading...</div>
 }
 
-return <ButtonWithLoader LoaderComponent={LoaderComponent} loading={true} error='Ошибка!'>Кнопка</ButtonWithLoader>
+return <ButtonWithLoader LoaderComponent={LoaderComponent} loading={true} error='Error!'>Button</ButtonWithLoader>
 ```

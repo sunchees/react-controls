@@ -2,13 +2,13 @@ import React from 'react';
 
 export interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
   /** 
-   * Флаг, добавляющий кнопке стилизацию по умолчанию (высота, отсутпы, граница, заливка).
+   * Adds default button styles (height, padding, borders, background).
    */
   stylized?: boolean;
 }
 
 /**
- * Базовый компонент кнопки.
+ * Basic button component.
  */
 declare class Button extends React.Component<ButtonProps> {}
 

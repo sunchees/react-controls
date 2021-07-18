@@ -2,8 +2,7 @@ import React from 'react';
 import './column.css';
 
 /**
- * Вспомогательный компонент для упрощения верстки и читаемости разметки.
- * Представляет собой обертку над HTML-элементом div с примененными стилями для расположения дочерних элементов в столбец.
+ * Utility component which displays wrapped children components in a column (flex-direction: column).
  */
 const Column = ({ className = '', children, ...props }) => (
   <div className={`column ${className}`} {...props}>

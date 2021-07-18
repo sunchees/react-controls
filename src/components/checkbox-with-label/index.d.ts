@@ -1,38 +1,38 @@
 import React from 'react';
 
 export interface CheckobxWithLabelProps extends React.HTMLProps<HTMLDivElement> {
-  /** 
-   * Флаг, задающий активность чекбокса.
-   * В случае, если чекбокс активен, к нему применяется стиль 'checked'.
+  /**
+   * Adds checkmark to checkbox.
+   * Also applies 'checked' selector to the component.
    */
   checked?: boolean;
   /** 
-   * Функция, вызываемая при нажатии на чекбокс.
-   * @param item - связанный с чекбоксом объект, переданный в качестве свойства "item".
-   * @param name - название чекбокса, на основе заданного компоненту свойства "name".
+   * Function that will be called when checkbox is clicked.
+   * @param item - Item associated with this checkbox. Set by the 'item' component prop.
+   * @param name - Checkbox name. Set by the 'name' component prop.
    */
   onClick?: (item?: any, name?: string) => void;
   /**
-   * Параметр, передаваемый при вызове функции props.onClick
+   * Item associated with this checkbox
    */
   item?: any;
   /**
-   * Название чекбокса.
+   * Checkbox name
    */
   name?: string;
   /**
-   * Ярлык, отображаемый рядом с чекбоксом.
+   * Label displayed next to checkbox
    */
   label?: string;
   /**
-   * Флаг, отключающий чекбокс.
-   * В случае, если чекбокс отключен, к обертке будет применен стиль 'disabled'.
+   * Disables the checkbox.
+   * Also applies 'disabled' selector to the component wrap.
    */
   disabled?: boolean
 }
 
 /**
- * Базовый компонент чекбокса с ярлыком.
+ * Checkbox with label
  */
 declare class CheckboxWithLabel extends React.Component<CheckobxWithLabelProps> {}
 

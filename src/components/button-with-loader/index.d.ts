@@ -3,29 +3,29 @@ import { ButtonProps } from '../button';
 
 export interface ButtonWithLoaderProps extends ButtonProps {
   /**
-   * Класс компонента для отрисовки кнопки.
+   * React component to render as button
    */
   ButtonComponent?: React.Component;
   /**
-   * Класс компонента для отрисовки лоадера.
+   * React component to render as loader
    */
   LoaderComponent?: React.Component;
   /**
-   * Регулирует отображение лоадера или контента кнопки
+   * Displays loader in place of button content
    */
   loading?: boolean;
   /**
-   * Текст успешного выполнения операции
+   * Successfull operation notification text
    */
   success?: string;
   /**
-   * Текст ошибки выполнения операции
+   * Error notification text
    */
   error?: boolean;
 }
 
 /**
- * Базовый компонент кнопки с лоадером и результатом выполнения операции.
+ * Basic button component combined with loader and operation result display.
  */
 declare class ButtonWithLoader extends React.Component<ButtonWithLoaderProps> {}
 

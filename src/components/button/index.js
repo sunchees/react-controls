@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './button.css';
 
 /**
- * Базовый компонент кнопки.
+ * Basic button component.
  */
 const Button = ({ className = '', stylized, children, ...props }) => (
   <button
@@ -16,7 +16,7 @@ const Button = ({ className = '', stylized, children, ...props }) => (
 
 Button.propTypes = {
   /**
-   * Флаг, добавляющий кнопке стилизацию по умолчанию (высота, отсутпы, граница, заливка).
+   * Adds default button styles (height, padding, borders, background).
    */
   stylized: PropTypes.bool
 };

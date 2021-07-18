@@ -1,39 +1,37 @@
-React-компоненты, предоставляющие базовые элементы управления для веб-интерфейса.
+Basic React controls and utility components
 
 https://github.com/sunchees/react-controls
 
-## Использование в проекте
+## Usage
 
-1. Добавить в package.json импорт библиотеки из GIT.
+1. Add git tag link as dependency in your package.json
 
-  ```json
-    {
-      "devDependencies": {
-        "react-controls": "git+https://git@github.com:sunchees/react-controls.git#1.1.40",
-      }
-    }
-  ```
+```json
+{
+  "devDependencies": {
+    "react-controls": "git+https://git@github.com:sunchees/react-controls.git#1.1.40"
+  }
+}
+```
 
-2. Установить библиотеку:
+2. Install dependency:
 
-  ```shell
-    npm-install
-  ```
+```
+  npm-install
+```
 
-3. Импортировать необходимые компоненты:
+3. Use components in your project:
 
-  ```jsx static
-    import { Button } from 'react-controls';
+```jsx
+import { Button } from "react-controls";
 
-    const YourComponent = ({ handleClick, text }) => (
-      <Button onClick={handleClick}>
-        {text}
-      </Button>
-    );
-  ```
+const YourComponent = ({ handleClick, text }) => (
+  <Button onClick={handleClick}>{text}</Button>
+);
+```
 
-4. (Опционально) Импортировать стандартный набор стилей для компонентов. Для упрощения процесса кастомизации стандартных стилей, рекомендуется импортировать стили по умолчанию в качестве самого первого модуля на веб-странице вашего проекта. Это может быть файл index.js, в котором выполняется рендеринг корневого компонента React.
+4. (Optional) Import default component styles. To apply your custom styles over the default ones, import default styles before any other styles in your application.
 
-  ```jsx static
-    import 'react-controls/lib/styles.css';
-  ```
+```jsx
+import "react-controls/lib/styles.css";
+```

@@ -6,7 +6,7 @@ import Text from '../text';
 import './checkbox-with-label.css';
 
 /**
- * Базовый компонент чекбокса с ярлыком.
+ * Checkbox with label
  */
 export default class CheckboxWithLabel extends React.Component {
   @autobind
@@ -43,32 +43,32 @@ export default class CheckboxWithLabel extends React.Component {
 
 CheckboxWithLabel.propTypes = {
   /**
-   * Флаг, задающий активность чекбокса.
-   * В случае, если чекбокс активен, к нему применяется стиль 'checked'.
+   * Adds checkmark to checkbox.
+   * Also applies 'checked' selector to the component.
    */
   checked: PropTypes.bool,
   /**
-   * Функция, вызываемая при нажатии на чекбокс.
-   * @param {any=} item - связанный с чекбоксом объект, переданный в качестве свойства "item".
+   * Function that will be called when checkbox is clicked.
+   * @param {any=} item - Item associated with this checkbox. Set by the 'item' component prop.
    * <br>
-   * @param {string=} name - название чекбокса, на основе заданного компоненту свойства "name".
+   * @param {string=} name - Checkbox name. Set by the 'name' component prop.
    */
   onClick: PropTypes.func,
   /**
-   * Параметр, передаваемый при вызове функции props.onClick
+   * Item associated with this checkbox
    */
   item: PropTypes.any,
   /**
-   * Название чекбокса.
+   * Checkbox name
    */
   name: PropTypes.string,
   /**
-   * Ярлык, отображаемый рядом с чекбоксом.
+   * Label displayed next to checkbox
    */
   label: PropTypes.string,
   /**
-   * Флаг, отключающий чекбокс.
-   * В случае, если чекбокс отключен, к обертке будет применен стиль 'disabled'.
+   * Disables the checkbox.
+   * Also applies 'disabled' selector to the component wrap.
    */
   disabled: PropTypes.bool
 };
