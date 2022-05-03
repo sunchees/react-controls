@@ -134,6 +134,13 @@ class ComboBox extends React.Component {
           error ? 'error' : ''
         } ${className}`}
         onBlur={this.onBlur}
+        onMouseDown={event => {
+          /*
+            Elements don't get focused on click by default in Safari browsers, which means that onBlur events won't trigger.
+            So we have to force focus the wrapping element when it's clicked in a closed state.
+          */
+          if (!this.state.open) event.target.focus();
+        }}
       >
         {this.state.selected && showSelectedItem ? (
           <SelectedItemComponent

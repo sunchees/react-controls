@@ -9,7 +9,7 @@ Basic React controls and utility components
 ```json
 {
   "devDependencies": {
-    "react-controls": "git+https://git@github.com:sunchees/react-controls.git#1.1.40"
+    "react-controls": "git+https://git@github.com:sunchees/react-controls.git#1.1.41"
   }
 }
 ```
@@ -72,6 +72,6 @@ import "react-controls/lib/styles.css";
 8. Create new git tag:
 
 ```
-  git tag 1.1.40
-  git push origin 1.1.40
+  git tag 1.1.41
+  git push origin 1.1.41
 ```

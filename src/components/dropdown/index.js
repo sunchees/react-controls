@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import autobind from 'autobind-decorator';
 import isEqual from 'lodash/isEqual';
 import ContentHeightScrollbar from '../content-height-scrollbar';
-import './dropdown.css';
 import { DropdownItem } from './dropdown-item';
+import './dropdown.css';
 
 /**
  * Компонент выпадающего списка.
@@ -86,6 +86,13 @@ class Dropdown extends React.Component {
           error ? 'error' : ''
         } ${className}`}
         onBlur={this.onBlur}
+        onMouseDown={event => {
+          /*
+            Elements don't get focused on click by default in Safari browsers, which means that onBlur events won't trigger.
+            So we have to force focus the wrapping element when it's clicked in a closed state.
+          */
+          if (!this.state.open) event.target.focus();
+        }}
       >
         <ItemComponent
           className='dropdown__title'
