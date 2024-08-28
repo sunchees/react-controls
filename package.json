@@ -60,6 +60,6 @@
     "rollup-plugin-peer-deps-external": "2.2.0",
     "rollup-plugin-postcss": "2.0.3",
     "style-loader": "0.13.2",
-    "webpack": "4.41.5"
+    "webpack": "5.94.0"
   }
 }
