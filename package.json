@@ -52,7 +52,7 @@
     "react-styleguidist": "11.0.5",
     "react-table-6": "6.11.0",
     "react-text-mask": "5.4.3",
-    "rollup": "1.27.13",
+    "rollup": "2.79.2",
     "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-delete": "1.2.0",
